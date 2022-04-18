@@ -28,6 +28,7 @@
 		6443DF0B277B2D110069A40F /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6443DF0A277B2D110069A40F /* LoginInspector.swift */; };
 		6443DF0E277B30F40069A40F /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6443DF0D277B30F40069A40F /* LoginFactory.swift */; };
 		6451B24F2743EB12001F7CD7 /* DetailProfileAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451B24E2743EB12001F7CD7 /* DetailProfileAvatar.swift */; };
+		645CA857280C41DD005F88BC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645CA856280C41DD005F88BC /* NetworkService.swift */; };
 		645F74EF2720116900949BC3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645F74EE2720116900949BC3 /* ProfileHeaderView.swift */; };
 		6460179C27A983F900566663 /* BruteForceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6460179B27A983F900566663 /* BruteForceService.swift */; };
 		64752258271C1EAD00014ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64752257271C1EAD00014ECF /* AppDelegate.swift */; };
@@ -95,6 +96,7 @@
 		6443DF0A277B2D110069A40F /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		6443DF0D277B30F40069A40F /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
 		6451B24E2743EB12001F7CD7 /* DetailProfileAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProfileAvatar.swift; sourceTree = "<group>"; };
+		645CA856280C41DD005F88BC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		645F74EE2720116900949BC3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		6460179B27A983F900566663 /* BruteForceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForceService.swift; sourceTree = "<group>"; };
 		64752254271C1EAD00014ECF /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -355,6 +357,7 @@
 				6443DF0A277B2D110069A40F /* LoginInspector.swift */,
 				6460179B27A983F900566663 /* BruteForceService.swift */,
 				64FF983227B3ED7100EE2352 /* ErrorAlertService.swift */,
+				645CA856280C41DD005F88BC /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				649D271127328854006F15EB /* LogInView.swift in Sources */,
 				64D2C77427A2C59800DED7E5 /* ProfileViewModel.swift in Sources */,
 				64C15871272596DF0078860D /* StatusTextField.swift in Sources */,
+				645CA857280C41DD005F88BC /* NetworkService.swift in Sources */,
 				64D2C6F2279D636000DED7E5 /* PasswordCheckerService.swift in Sources */,
 				64FF983127B3DB5500EE2352 /* LoginError.swift in Sources */,
 				640E157F27C90603004EEE4D /* RecViewController.swift in Sources */,
