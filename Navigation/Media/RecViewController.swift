@@ -13,24 +13,10 @@ class RecViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        recordingSession = AVAudioSession.sharedInstance()
+      
         view.backgroundColor = .gray
-        do {
-            try recordingSession.setCategory(.playAndRecord, mode: .default)
-            try recordingSession.setActive(true)
-            recordingSession.requestRecordPermission() { [unowned self] allowed in
-                DispatchQueue.main.async {
-                    if allowed {
-                        self.loadRecordingUI()
-                    } else {
-                        print("Не предоставлен доступ")
-                    }
-                }
-            }
-        } catch {
-            print(error)
-        }
-        
+        checkRecordPermission()
+        self.loadRecordingUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,6 +43,24 @@ class RecViewController: UIViewController, AVAudioRecorderDelegate {
         playButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(playButton)
         
+    }
+    
+    func checkRecordPermission(){
+        
+        recordingSession = AVAudioSession.sharedInstance()
+        do {
+            try recordingSession.setCategory(.playAndRecord, mode: .default)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { [unowned self] allowed in
+                DispatchQueue.main.async {
+                    if !allowed {
+                        self.dismiss(animated: true)
+                    }
+                }
+            }
+        } catch {
+            print(error)
+        }
     }
     
     func startRecording() {

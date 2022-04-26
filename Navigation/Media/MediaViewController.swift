@@ -9,9 +9,11 @@ import UIKit
 import AVFoundation
 import AVKit
 
+
 class MediaViewController: UIViewController {
     
     let songList = ["Asia Down", "Melodic song", "Timepieces", "Happy song", "Blue song"]
+    let videoArchive = ["Video1": "ife5YK-Keng" , "Video2": "Yv62q3c3UxI" , "Video3": "Uxzay4CPzPA" , "Video4": "p6xqKJqsQWs" , "Video5": "BhbhiQZwjf4" ]
     let videoList = ["Video1", "Video2", "Video3", "Video4", "Video5"]
     var currentSong = "" {
         didSet {
@@ -169,24 +171,17 @@ extension MediaViewController: UITableViewDataSource {
         cell.textLabel?.textAlignment = .center
         return cell
     }
-    
-    
 }
 
 extension MediaViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let path = Bundle.main.path(forResource: videoList[indexPath.row], ofType: "mp4")!
-        let player = AVPlayer(url: URL(fileURLWithPath: path))
-        
-        // Создаём AVPlayerViewController и передаём ссылку на плеер.
-        let controller = AVPlayerViewController()
-        controller.player = player
+        let key = videoList[indexPath.row]
+        guard let VideoId = videoArchive[key] else {return}
+        let controller = VideoPlayerViewController()
+        controller.videoID = VideoId
         if audioPlayer.isPlaying {
             audioPlayer.stop()
         }
-        // Показываем контроллер модально и запускаем плеер.
-        present(controller, animated: true) {
-            player.play()
-        }
+        present(controller, animated: true)
     }
 }

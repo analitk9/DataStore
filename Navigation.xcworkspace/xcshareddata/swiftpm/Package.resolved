@@ -1,16 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "iOSIntPackage",
-        "repositoryURL": "https://github.com/TrueMax/iOSIntPackage.git",
-        "state": {
-          "branch": "imagepublisher",
-          "revision": "e1cc0e1b76d7cb8f770d903d85ae9ed91ae026bd",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "iosintpackage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TrueMax/iOSIntPackage.git",
+      "state" : {
+        "branch" : "imagepublisher",
+        "revision" : "e1cc0e1b76d7cb8f770d903d85ae9ed91ae026bd"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "youtube-ios-player-helper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/youtube/youtube-ios-player-helper",
+      "state" : {
+        "branch" : "master",
+        "revision" : "f57129cd4380ec0a74dd3a59da3270a1d653d59b"
+      }
+    }
+  ],
+  "version" : 2
 }
