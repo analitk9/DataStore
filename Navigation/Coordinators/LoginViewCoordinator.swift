@@ -18,9 +18,11 @@ final class LoginViewCoordinator: Coordinator {
     
     
     func start() {
-        let loginVC = viewControllerFactory.createController(type: .loginVC) as! LogInViewController
-        loginVC.delegate = loginFactory.createLogInspector()
-        loginVC.toProfileVC = toProfileVC(name:)
+        let loginChecker = LoginInspector()
+        let model = LoginViewModel(loginChecker: loginChecker, toProfileVC: toProfileVC)
+        
+        let loginVC = viewControllerFactory.createController(type: .loginVC(model)) as! LogInViewController
+ 
         navigationController?.setViewControllers([loginVC], animated: false)
         
     }

@@ -27,6 +27,7 @@
 		645CA85A281154BD005F88BC /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645CA859281154BD005F88BC /* InfoViewModel.swift */; };
 		645CA8652817DDAA005F88BC /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 645CA8642817DDAA005F88BC /* YouTubeiOSPlayerHelper */; };
 		645CA8672817DDD9005F88BC /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645CA8662817DDD9005F88BC /* VideoPlayerViewController.swift */; };
+		645CA8692817E083005F88BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 645CA8682817E083005F88BC /* GoogleService-Info.plist */; };
 		645F74EF2720116900949BC3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645F74EE2720116900949BC3 /* ProfileHeaderView.swift */; };
 		6460179C27A983F900566663 /* BruteForceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6460179B27A983F900566663 /* BruteForceService.swift */; };
 		64752258271C1EAD00014ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64752257271C1EAD00014ECF /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 		649D271527329240006F15EB /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D271427329240006F15EB /* Extention.swift */; };
 		649D27172732C56B006F15EB /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D27162732C56B006F15EB /* KeyboardHelper.swift */; };
 		64AF7DFC278EE99900EA7794 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 64AF7DFB278EE99900EA7794 /* iOSIntPackage */; };
+		64BC2EAF28180ECE00488A2B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EAE28180ECE00488A2B /* LoginViewModel.swift */; };
 		64C15871272596DF0078860D /* StatusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C15870272596DF0078860D /* StatusTextField.swift */; };
 		64C15873272599500078860D /* ProfileAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C15872272599500078860D /* ProfileAvatarView.swift */; };
 		64C1587627259B870078860D /* StatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C1587527259B870078860D /* StatusButton.swift */; };
@@ -92,6 +94,7 @@
 		645CA856280C41DD005F88BC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		645CA859281154BD005F88BC /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		645CA8662817DDD9005F88BC /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		645CA8682817E083005F88BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		645F74EE2720116900949BC3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		6460179B27A983F900566663 /* BruteForceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForceService.swift; sourceTree = "<group>"; };
 		64752254271C1EAD00014ECF /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +112,7 @@
 		649D271027328854006F15EB /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		649D271427329240006F15EB /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		649D27162732C56B006F15EB /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
+		64BC2EAE28180ECE00488A2B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		64C15870272596DF0078860D /* StatusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTextField.swift; sourceTree = "<group>"; };
 		64C15872272599500078860D /* ProfileAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvatarView.swift; sourceTree = "<group>"; };
 		64C1587527259B870078860D /* StatusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusButton.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 				64D748FE277865D4009B7677 /* Services */,
 				641982572742E09A008C9A41 /* CollectionPhotos */,
 				64752265271C1EAF00014ECF /* Info.plist */,
+				645CA8682817E083005F88BC /* GoogleService-Info.plist */,
 				64C1586D272574E00078860D /* extention */,
 				64FE1D252733F29E00D2D985 /* Login */,
 				645F74ED2720112C00949BC3 /* Profile */,
@@ -361,6 +366,7 @@
 				649D270E2732804A006F15EB /* LogInViewController.swift */,
 				649D271027328854006F15EB /* LogInView.swift */,
 				64FF983027B3DB5500EE2352 /* LoginError.swift */,
+				64BC2EAE28180ECE00488A2B /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64752264271C1EAF00014ECF /* LaunchScreen.storyboard in Resources */,
+				645CA8692817E083005F88BC /* GoogleService-Info.plist in Resources */,
 				640E156D27C8EC54004EEE4D /* Happy song.mp3 in Resources */,
 				640E157027C8EC54004EEE4D /* Melodic song.mp3 in Resources */,
 				640E156E27C8EC54004EEE4D /* Asia Down.mp3 in Resources */,
@@ -508,6 +515,7 @@
 				64D2C769279ED24400DED7E5 /* ProfileViewCoordinator.swift in Sources */,
 				64752271271C224300014ECF /* PostViewController.swift in Sources */,
 				64752258271C1EAD00014ECF /* AppDelegate.swift in Sources */,
+				64BC2EAF28180ECE00488A2B /* LoginViewModel.swift in Sources */,
 				640E156727C8D6DA004EEE4D /* AudioView.swift in Sources */,
 				64D2C6F02798135100DED7E5 /* CustomButton.swift in Sources */,
 				641982542742920A008C9A41 /* PhotosTableViewCell.swift in Sources */,

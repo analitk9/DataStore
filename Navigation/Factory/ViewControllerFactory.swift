@@ -9,7 +9,7 @@ import UIKit
 
 
 enum typeOfController {
-    case loginVC
+    case loginVC(LoginViewModel)
     case feedVC(FeedViewModel)
     case infoVC
     case postVC
@@ -26,8 +26,8 @@ class ViewControllerFactory: ViewControllerFactoryProtocol{
         case let .profileVC(model, userService, name):
             return ProfileViewController(model: model, userService: userService, name: name)
             
-        case.loginVC:
-            return LogInViewController()
+        case let . loginVC(model):
+            return LogInViewController(model: model)
             
         case .postVC:
             return PostViewController()
