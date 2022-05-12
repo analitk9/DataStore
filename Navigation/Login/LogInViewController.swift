@@ -65,6 +65,7 @@ class LogInViewController: UIViewController {
         }
         
         setupViewModel()
+        loginViewModel.send(.autoLogin)
     }
     
     override func viewDidLayoutSubviews() {

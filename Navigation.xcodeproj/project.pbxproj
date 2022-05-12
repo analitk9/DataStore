@@ -43,6 +43,9 @@
 		649D271127328854006F15EB /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D271027328854006F15EB /* LogInView.swift */; };
 		649D271527329240006F15EB /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D271427329240006F15EB /* Extention.swift */; };
 		649D27172732C56B006F15EB /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D27162732C56B006F15EB /* KeyboardHelper.swift */; };
+		649EB3B7282A7FD80074F7DB /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 649EB3B6282A7FD80074F7DB /* Realm */; };
+		649EB3B9282A7FD80074F7DB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 649EB3B8282A7FD80074F7DB /* RealmSwift */; };
+		649EB3BB282CFC2B0074F7DB /* RealmAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649EB3BA282CFC2B0074F7DB /* RealmAuthModel.swift */; };
 		64AF7DFC278EE99900EA7794 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 64AF7DFB278EE99900EA7794 /* iOSIntPackage */; };
 		64BC2EAF28180ECE00488A2B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EAE28180ECE00488A2B /* LoginViewModel.swift */; };
 		64C15871272596DF0078860D /* StatusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C15870272596DF0078860D /* StatusTextField.swift */; };
@@ -112,6 +115,7 @@
 		649D271027328854006F15EB /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		649D271427329240006F15EB /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		649D27162732C56B006F15EB /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
+		649EB3BA282CFC2B0074F7DB /* RealmAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAuthModel.swift; sourceTree = "<group>"; };
 		64BC2EAE28180ECE00488A2B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		64C15870272596DF0078860D /* StatusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTextField.swift; sourceTree = "<group>"; };
 		64C15872272599500078860D /* ProfileAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvatarView.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 			files = (
 				6BA0D1F4D8FBD59DF67111F2 /* Pods_Navigation.framework in Frameworks */,
 				64AF7DFC278EE99900EA7794 /* iOSIntPackage in Frameworks */,
+				649EB3B7282A7FD80074F7DB /* Realm in Frameworks */,
+				649EB3B9282A7FD80074F7DB /* RealmSwift in Frameworks */,
 				645CA8652817DDAA005F88BC /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				64752272271C227A00014ECF /* Post.swift */,
+				649EB3BA282CFC2B0074F7DB /* RealmAuthModel.swift */,
 				64D748FA277856D8009B7677 /* User.swift */,
 				641982552742D11A008C9A41 /* Photo.swift */,
 			);
@@ -401,6 +408,8 @@
 			packageProductDependencies = (
 				64AF7DFB278EE99900EA7794 /* iOSIntPackage */,
 				645CA8642817DDAA005F88BC /* YouTubeiOSPlayerHelper */,
+				649EB3B6282A7FD80074F7DB /* Realm */,
+				649EB3B8282A7FD80074F7DB /* RealmSwift */,
 			);
 			productName = Navigation;
 			productReference = 64752254271C1EAD00014ECF /* Navigation.app */;
@@ -433,6 +442,7 @@
 			packageReferences = (
 				64AF7DFA278EE99900EA7794 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
 				645CA8632817DDAA005F88BC /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+				649EB3B5282A7FD80074F7DB /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 64752255271C1EAD00014ECF /* Products */;
 			projectDirPath = "";
@@ -561,6 +571,7 @@
 				645F74EF2720116900949BC3 /* ProfileHeaderView.swift in Sources */,
 				6443DF0B277B2D110069A40F /* LoginInspector.swift in Sources */,
 				64D2C6FB279EBFC200DED7E5 /* ApplicationCoordinator.swift in Sources */,
+				649EB3BB282CFC2B0074F7DB /* RealmAuthModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,6 +796,14 @@
 				kind = branch;
 			};
 		};
+		649EB3B5282A7FD80074F7DB /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		64AF7DFA278EE99900EA7794 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
@@ -800,6 +819,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 645CA8632817DDAA005F88BC /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
 			productName = YouTubeiOSPlayerHelper;
+		};
+		649EB3B6282A7FD80074F7DB /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 649EB3B5282A7FD80074F7DB /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		649EB3B8282A7FD80074F7DB /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 649EB3B5282A7FD80074F7DB /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		64AF7DFB278EE99900EA7794 /* iOSIntPackage */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -7,11 +7,15 @@
 
 import Foundation
 protocol LoginFactory{
-    func createLogInspector()-> LoginInspector
+    func createLogInspector(typeOfServise: LoginService)-> LoginInspector
 }
 
 class MyLoginFactory: LoginFactory {
-    func createLogInspector() -> LoginInspector {
-        LoginInspector()
+    let typeOfServise: LoginService
+    init (typeOfServise: LoginService){
+        self.typeOfServise = typeOfServise
+    }
+    func createLogInspector(typeOfServise: LoginService) -> LoginInspector {
+        LoginInspector( loginservice: typeOfServise)
     }
 }

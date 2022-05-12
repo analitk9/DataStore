@@ -11,10 +11,19 @@ class Checker {
     private init(){}
     
     func verify(login: String?, password: String?) throws  {
-        if login == nil {
+        guard let login = login else {
+            throw LoginError.emptyLogin
+           
+        }
+        guard let password = password else {
+            throw LoginError.emptyPassword
+           
+        }
+
+        if  login.count == 0 {
             throw LoginError.emptyLogin
         }
-        if password == nil {
+        if password.count == 0 {
             throw LoginError.emptyPassword
         }
 

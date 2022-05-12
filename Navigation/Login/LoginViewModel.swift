@@ -1,11 +1,14 @@
 
 import Foundation
 import Firebase
+
+
 protocol LoginViewCheckerDelegate: AnyObject {
-    func check(login: String?, password: String?) throws
-    func loginUser(login: String?, password: String?, completion: @escaping(AuthDataResult?,Error?)-> Void)
-    func createUser(login: String?, password: String?, completion: @escaping(AuthDataResult?,Error?)-> Void)
-    func signOut()
+    typealias Handler = (Result<String, LoginError>)->Void
+    func loginUser(login: String?, password: String?, completion: @escaping Handler)
+    func createUser(login: String?, password: String?, completion: @escaping Handler)
+    func autoLogin(completion: @escaping Handler)
+   
 }
 
 class LoginViewModel {
@@ -24,6 +27,16 @@ class LoginViewModel {
         
     }
     
+    private func handlingResult(_ result: Result<String, LoginError>){
+        switch result {
+        case let .success(login):
+            self.toProfileVC(login)
+        case let .failure(error):
+            self.state = .error(.fbError(error.errorDescription))
+            
+        }
+    }
+    
     func send(_ action: LoginAction){
         switch action {
             
@@ -31,30 +44,20 @@ class LoginViewModel {
             bruteForcePress()
             
         case let .createUserButtonPress(login, password):
-            checkerDelegate.createUser(login: login, password: password) { [weak self]   authResult, error in
-                guard let self = self else { return }
-                
-                if error == nil {
-                    self.toProfileVC(login!)
-                    return
-                }else {
-                    self.state = .error(.fbError(error!.localizedDescription))
-                }
+            
+            checkerDelegate.createUser(login: login, password: password) { result in
+                self.handlingResult(result)
             }
             
         case let .loginButtonPress(login, password):
-            checkerDelegate.loginUser(login: login, password: password){ [weak self]   authResult, error in
-                
-                guard let self = self else { return }
-                if error == nil {
-                    
-                    self.toProfileVC(login!)
-                    return
-                }else {
-                    self.state = .error(.fbError(error!.localizedDescription))
-                }
+            checkerDelegate.loginUser(login: login, password: password) { result in
+                self.handlingResult(result)
             }
-        }
+        case .autoLogin:
+            checkerDelegate.autoLogin{ result in
+                self.handlingResult(result)
+            }
+       }
     }
     
     private func bruteForcePress (){
@@ -77,6 +80,7 @@ extension LoginViewModel{
         case loginButtonPress(String?, String?)
         case bruteForceButtonPress
         case createUserButtonPress(String?, String?)
+        case autoLogin
     }
     
     enum LoginState { // состояния модели
