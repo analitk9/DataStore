@@ -46,6 +46,9 @@
 		649EB3B7282A7FD80074F7DB /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 649EB3B6282A7FD80074F7DB /* Realm */; };
 		649EB3B9282A7FD80074F7DB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 649EB3B8282A7FD80074F7DB /* RealmSwift */; };
 		649EB3BB282CFC2B0074F7DB /* RealmAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649EB3BA282CFC2B0074F7DB /* RealmAuthModel.swift */; };
+		649EB3BE28323C7E0074F7DB /* FavouritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649EB3BD28323C7E0074F7DB /* FavouritesTableViewController.swift */; };
+		649EB3C128323F620074F7DB /* FavouritesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 649EB3BF28323F620074F7DB /* FavouritesDataModel.xcdatamodeld */; };
+		649EB3C4283240550074F7DB /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649EB3C3283240550074F7DB /* CoreDataService.swift */; };
 		64AF7DFC278EE99900EA7794 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 64AF7DFB278EE99900EA7794 /* iOSIntPackage */; };
 		64BC2EAF28180ECE00488A2B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EAE28180ECE00488A2B /* LoginViewModel.swift */; };
 		64C15871272596DF0078860D /* StatusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C15870272596DF0078860D /* StatusTextField.swift */; };
@@ -116,6 +119,9 @@
 		649D271427329240006F15EB /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		649D27162732C56B006F15EB /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		649EB3BA282CFC2B0074F7DB /* RealmAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAuthModel.swift; sourceTree = "<group>"; };
+		649EB3BD28323C7E0074F7DB /* FavouritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewController.swift; sourceTree = "<group>"; };
+		649EB3C028323F620074F7DB /* FavoutitesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoutitesDataModel.xcdatamodel; sourceTree = "<group>"; };
+		649EB3C3283240550074F7DB /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		64BC2EAE28180ECE00488A2B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		64C15870272596DF0078860D /* StatusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTextField.swift; sourceTree = "<group>"; };
 		64C15872272599500078860D /* ProfileAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvatarView.swift; sourceTree = "<group>"; };
@@ -266,6 +272,7 @@
 				64752265271C1EAF00014ECF /* Info.plist */,
 				645CA8682817E083005F88BC /* GoogleService-Info.plist */,
 				64C1586D272574E00078860D /* extention */,
+				649EB3BC28323BFF0074F7DB /* Favourites */,
 				64FE1D252733F29E00D2D985 /* Login */,
 				645F74ED2720112C00949BC3 /* Profile */,
 				64752276271C419600014ECF /* Model */,
@@ -296,6 +303,23 @@
 				641982552742D11A008C9A41 /* Photo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		649EB3BC28323BFF0074F7DB /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				649EB3BD28323C7E0074F7DB /* FavouritesTableViewController.swift */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		649EB3C22832401E0074F7DB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				649EB3BF28323F620074F7DB /* FavouritesDataModel.xcdatamodeld */,
+				649EB3C3283240550074F7DB /* CoreDataService.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		64C1586D272574E00078860D /* extention */ = {
@@ -353,6 +377,7 @@
 		64D748FE277865D4009B7677 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				649EB3C22832401E0074F7DB /* CoreData */,
 				649D27162732C56B006F15EB /* KeyboardHelper.swift */,
 				64D748FC277859E1009B7677 /* CurrentUserService.swift */,
 				64FF983827BA8FA700EE2352 /* UserServiceError.swift */,
@@ -531,6 +556,7 @@
 				641982542742920A008C9A41 /* PhotosTableViewCell.swift in Sources */,
 				6475226F271C223000014ECF /* ProfileViewController.swift in Sources */,
 				649D27172732C56B006F15EB /* KeyboardHelper.swift in Sources */,
+				649EB3C4283240550074F7DB /* CoreDataService.swift in Sources */,
 				64FF983727BA82C000EE2352 /* PostError.swift in Sources */,
 				6451B24F2743EB12001F7CD7 /* DetailProfileAvatar.swift in Sources */,
 				64D7490027786907009B7677 /* TestUserService.swift in Sources */,
@@ -564,9 +590,11 @@
 				64D2C77127A179A600DED7E5 /* FeedViewModel.swift in Sources */,
 				64752273271C227A00014ECF /* Post.swift in Sources */,
 				64D2C701279EC5C800DED7E5 /* LoginViewCoordinator.swift in Sources */,
+				649EB3BE28323C7E0074F7DB /* FavouritesTableViewController.swift in Sources */,
 				64D2C6F9279EBEDE00DED7E5 /* Coordinator.swift in Sources */,
 				64D2C76D279EEE2E00DED7E5 /* InfoCoordinator.swift in Sources */,
 				64752275271C22FA00014ECF /* InfoViewController.swift in Sources */,
+				649EB3C128323F620074F7DB /* FavouritesDataModel.xcdatamodeld in Sources */,
 				6475225A271C1EAD00014ECF /* SceneDelegate.swift in Sources */,
 				645F74EF2720116900949BC3 /* ProfileHeaderView.swift in Sources */,
 				6443DF0B277B2D110069A40F /* LoginInspector.swift in Sources */,
@@ -836,6 +864,19 @@
 			productName = iOSIntPackage;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		649EB3BF28323F620074F7DB /* FavouritesDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				649EB3C028323F620074F7DB /* FavoutitesDataModel.xcdatamodel */,
+			);
+			currentVersion = 649EB3C028323F620074F7DB /* FavoutitesDataModel.xcdatamodel */;
+			path = FavouritesDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6475224C271C1EAD00014ECF /* Project object */;
 }

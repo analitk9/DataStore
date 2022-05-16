@@ -179,6 +179,7 @@ extension ProfileViewController: UITableViewDataSource {
         case 1:
             let reuseID = CellReuseID.default.rawValue
             guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as? PostTableViewCell else { fatalError() }
+            cell.delegate = profileViewModel
             let post = profileViewModel.postModel[indexPath.row]
             cell.configure(post)
             
