@@ -25,13 +25,15 @@ final class ApplicationCoordinator: BaseCoordinator, Coordinator {
         
         let feedNavigationVC = UINavigationController()
         let loginNavigationVC = UINavigationController()
+       
         let mediaVC = MediaViewController()
+        let mapLocationNavigationVC = UINavigationController(rootViewController: MapViewController())
         let favouritesNavigationVC = UINavigationController(rootViewController:  FavouritesViewController())
         
         let feedCoordinator = FeedViewCoordinator(navigationController: feedNavigationVC,factory: viewControllerFactory)
         let loginCoordinator = LoginViewCoordinator(navigationController: loginNavigationVC, factory: viewControllerFactory)
         
-        tabBarController.setViewControllers([feedNavigationVC,loginNavigationVC,mediaVC,favouritesNavigationVC], animated: true)
+        tabBarController.setViewControllers([feedNavigationVC,loginNavigationVC,mediaVC,favouritesNavigationVC,mapLocationNavigationVC], animated: true)
         tabBarController.selectedViewController = tabBarController.viewControllers?.first
         addDependency(feedCoordinator)
         addDependency(loginCoordinator)
