@@ -9,25 +9,24 @@ import Foundation
 class Checker {
     static let shared = Checker()
     private init(){}
-    private let login = "1"
-    private let password = "1"
     
-    func verify(login: String, password: String) throws ->Bool  {
-        if login.isEmpty {
+    func verify(login: String?, password: String?) throws  {
+        guard let login = login else {
+            throw LoginError.emptyLogin
+           
+        }
+        guard let password = password else {
+            throw LoginError.emptyPassword
+           
+        }
+
+        if  login.count == 0 {
             throw LoginError.emptyLogin
         }
-        if password.isEmpty {
+        if password.count == 0 {
             throw LoginError.emptyPassword
         }
-        if self.login == login && self.password == password {
-            return true
-        }
-        if self.login != login {
-            throw LoginError.wrongLogin
-        }
-        if self.password != password {
-            throw LoginError.wrongPassword
-        }
-        return false
+
+       
     }
 }

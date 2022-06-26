@@ -6,6 +6,13 @@
 //
 
 import UIKit
+import Firebase
+
+enum AppConfiguration: String, CaseIterable {
+    case people = "https://swapi.dev/api/people/8"
+    case starship = "https://swapi.dev/api/starships/3"
+    case planet = "https://swapi.dev/api/planets/5"
+}
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -14,7 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private var appCoordinator: ApplicationCoordinator!
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
+        FirebaseApp.configure()
+        let address = AppConfiguration.allCases.randomElement()?.rawValue
+        if let adrdress = address {
+            NetworkService.fetchURLTask(adrdress)
+        }
         guard let scene = (scene as? UIWindowScene) else { return }
         viewControllerFactory = ViewControllerFactory()
         appCoordinator = ApplicationCoordinator(scene: scene, factory: viewControllerFactory)

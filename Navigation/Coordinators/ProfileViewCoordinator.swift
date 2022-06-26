@@ -23,7 +23,7 @@ final class ProfileViewCoordinator: Coordinator {
         let model = ProfileViewModel(postsService: postModel, photoService: photoModel)
         model.toPhotoVC = toPhotoVC
         #if DEBUG
-                self.userService = TestUserService()
+                self.userService = TestUserService(userName: name)
         #else
                 self.userService = CurrentUserService()
         #endif

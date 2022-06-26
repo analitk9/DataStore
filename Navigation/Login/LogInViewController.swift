@@ -8,14 +8,9 @@
 import UIKit
 
 
-protocol LoginViewControllerDelegate: AnyObject {
-    func check(login: String, password: String) throws -> Bool
-}
-
 class LogInViewController: UIViewController {
     
-    var delegate: LoginViewControllerDelegate?
-    var toProfileVC: ((String)->Void)?
+    var loginViewModel: LoginViewModel
     
     private var keyboardHelper: KeyboardHelper?
     let loginView = LogInView()
@@ -30,8 +25,10 @@ class LogInViewController: UIViewController {
     
     private let errorAlertService = ErrorAlertService()
     
-    init() {
+    init(model: LoginViewModel) {
+        loginViewModel = model
         super.init(nibName: nil, bundle: nil)
+        
         configureTabBarItem()
     }
     
@@ -49,6 +46,7 @@ class LogInViewController: UIViewController {
         
         loginView.logInButton.onTap = loginButtonPress
         loginView.bruteForceButton.onTap = bruteForcePress
+        loginView.createUserButton.onTap = createUserPress
         loginView.loginText.delegate = self
         loginView.passwordText.delegate = self
         
@@ -65,6 +63,9 @@ class LogInViewController: UIViewController {
                 scrollView.scrollIndicatorInsets = .zero
             }
         }
+        
+        setupViewModel()
+        loginViewModel.send(.autoLogin)
     }
     
     override func viewDidLayoutSubviews() {
@@ -98,39 +99,47 @@ class LogInViewController: UIViewController {
         tabBarItem.tag = 20
     }
     
+    private func setupViewModel(){
+        loginViewModel.onStateChanged = { [weak self] state in
+            guard let self = self else { return }
+            switch state {
+            case .login:
+                print("VC login")
+            case .logout:
+                print("VC lgout")
+            case let .error(error):
+              let alert = self.errorAlertService.createAlert(error.errorDescription)
+                self.present(alert,animated: true)
+            case let .passwordBruteForce(pass):
+                self.loginView.spinnerView.stopAnimating()
+                self.loginView.passwordText.isSecureTextEntry = false
+                self.loginView.passwordText.text = pass
+            default:
+                print("initial")
+            }
+        }
+    }
+    
+    
+    
      func loginButtonPress() {
-        
-         guard let delegate = delegate else { return }
-         guard let loginText = loginView.loginText.text else { return }
-         guard let passwordText = loginView.passwordText.text else { return }
-     
-         do {
-            let res = try delegate.check(login: loginText, password: passwordText)
-             if res {
-                 toProfileVC?(loginText)
-             }
-         }catch  {
-             let loginError = error as! LoginError
-             let alert = errorAlertService.createAlert(loginError.errorDescription)
-             present(alert,animated: true)
-         }
+          let loginText = loginView.loginText.text
+          let passwordText = loginView.passwordText.text
+         loginViewModel.send(.loginButtonPress(loginText, passwordText))
      }
     
     
     func bruteForcePress (){
         loginView.spinnerView.startAnimating()
-        DispatchQueue.global(qos: .background).async {
-            let bfService = BruteForceService()
-            bfService.bruteForce(passwordToUnlock: "112233"){[weak self] pass in
-                DispatchQueue.main.async {
-                    guard let self = self else { return }
-                    self.loginView.spinnerView.stopAnimating()
-                    self.loginView.passwordText.isSecureTextEntry = false
-                    self.loginView.passwordText.text = pass
-                }
-            }
-        }
+        loginViewModel.send(.bruteForceButtonPress)
     }
+    
+    func createUserPress(){
+        let loginText = loginView.loginText.text
+        let passwordText = loginView.passwordText.text
+        loginViewModel.send(.createUserButtonPress(loginText, passwordText))
+    }
+    
     
     func showWrongLoginPasswordAlert() {
         let alertVC = UIAlertController(title: "Внимание", message: "Не верно указан логи или пароль", preferredStyle: .alert)

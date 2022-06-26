@@ -11,16 +11,25 @@ enum LoginError: Error {
     case emptyLogin
     case emptyPassword
     case correct
+    case loginError
+    case createError
+    case fbError(String)
+    case wrongAutoLogin
 }
 
 extension LoginError {
     var errorDescription: String {
         switch self {
+        case .wrongAutoLogin: return "Вы ранее не авторизировались / не создавали логин"
         case .wrongLogin: return "Не верно указан логин"
         case .wrongPassword: return "Не верно указан пароль"
         case .emptyLogin: return "Пустое поля логина"
         case .emptyPassword: return "Пустое поле пароля"
         case .correct: return "Верно"
+        case .loginError: return "Логин или пароль не верные"
+        case .createError: return "Ошибка создания пользователя"
+        case let .fbError(fbError):
+            return fbError
         }
     }
 }

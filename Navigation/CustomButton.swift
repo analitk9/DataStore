@@ -13,7 +13,8 @@ import UIKit
     var onTap: (() -> Void)?
     
     convenience init(frame: CGRect, title: String?, tintColor: UIColor?) {
-        self.init(frame: frame)
+        
+        self.init(type: .system)
         self.setTitle(title, for: .normal)
         if let tintColor = tintColor {
             self.tintColor = tintColor

@@ -58,6 +58,12 @@ class LogInView: UIView {
         return but
     }()
     
+    let createUserButton: CustomButton = {
+        let but = CustomButton(frame: .zero, title: "Create user", tintColor: UIColor.black)
+        but.translatesAutoresizingMaskIntoConstraints = false
+        return but
+    }()
+    
     let spinnerView = UIActivityIndicatorView(style: .large)
     
     let bruteForceButton: CustomButton = {
@@ -121,7 +127,7 @@ class LogInView: UIView {
         stack.addArrangedSubview(passWordStack)
         spinnerView.hidesWhenStopped = true
        
-        addSubviews([stack, logoView, logInButton, bruteForceButton])
+        addSubviews([stack, logoView, logInButton, bruteForceButton, createUserButton])
 
     }
     
@@ -147,8 +153,12 @@ class LogInView: UIView {
             stack.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: Constans.padding),
             stack.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: Constans.logoInset),
             stack.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -Constans.padding),
+            createUserButton.trailingAnchor.constraint(equalTo: stack.trailingAnchor),
+            createUserButton.leadingAnchor.constraint(equalTo: stack.leadingAnchor),
+            createUserButton.topAnchor.constraint(equalTo: stack.bottomAnchor, constant: Constans.padding),
+            createUserButton.heightAnchor.constraint(equalToConstant: Constans.padding),
             logInButton.leadingAnchor.constraint(equalTo: stack.leadingAnchor),
-            logInButton.topAnchor.constraint(equalTo: stack.bottomAnchor, constant: Constans.padding),
+            logInButton.topAnchor.constraint(equalTo: createUserButton.bottomAnchor, constant: Constans.padding),
             logInButton.trailingAnchor.constraint(equalTo: stack.trailingAnchor),
             bruteForceButton.leadingAnchor.constraint(equalTo: logInButton.leadingAnchor),
             bruteForceButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: Constans.padding),

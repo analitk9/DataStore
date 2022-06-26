@@ -6,12 +6,18 @@
 //
 
 import UIKit
+protocol PostViewCellDelegate {
+    func addToFavourite(_ post: Post)
+}
 
 class PostTableViewCell: UITableViewCell {
     
     private enum Constans{
         static let padding: CGFloat = 16
     }
+    
+    var delegate: PostViewCellDelegate?
+    var post: Post?
     
     private lazy var titleTextLabel: UILabel = {
         let label = UILabel()
@@ -64,6 +70,10 @@ class PostTableViewCell: UITableViewCell {
         
         contentView.addSubviews([titleTextLabel,postImage, descriptionLabel, likeLabel, viewsLabel])
         separate()
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(addToFavourite))
+        gesture.numberOfTapsRequired = 2
+        contentView.addGestureRecognizer(gesture)
+        contentView.isUserInteractionEnabled = true
     }
     
     override func layoutSubviews() {
@@ -111,6 +121,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func configure(_ post: Post) {
+        self.post = post
         titleTextLabel.text = post.title
         postImage.image = UIImage(named: post.image)
         likeLabel.text = "Likes: \(String(post.likes))"
@@ -145,4 +156,15 @@ class PostTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate(allConstraints)
     }
     
+    @objc func addToFavourite(){
+        guard let post = post, let  delegate = delegate else{return}
+        
+        delegate.addToFavourite(post)
+        UIWindow.animate(withDuration: 0.1, animations: {
+            self.contentView.alpha = 0.5
+        }) { _ in
+            self.contentView.alpha = 1
+        }
+                         
+    }
 }
