@@ -31,7 +31,7 @@ class FavouritesViewController: UIViewController {
         super.viewDidLoad()
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postCell")
         self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = "Favourites"
+        self.navigationItem.title = "Favourites".localize()
         view.addSubview(tableView)
         tableView.dataSource = self
         configureLayout()
@@ -44,7 +44,7 @@ class FavouritesViewController: UIViewController {
     
     
     func configureTabBarItem() {
-        tabBarItem.title = "Favourites"
+        tabBarItem.title = "Favourites".localize()
         tabBarItem.image = UIImage(systemName: "bookmark")
         tabBarItem.selectedImage = UIImage(systemName: "bookmark.fill")
         tabBarItem.tag = 40

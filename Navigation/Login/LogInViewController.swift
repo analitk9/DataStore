@@ -93,7 +93,7 @@ class LogInViewController: UIViewController {
     }
     
     func configureTabBarItem() {
-        tabBarItem.title = "Profile"
+        tabBarItem.title = "Profile".localize()
         tabBarItem.image = UIImage(systemName: "person")
         tabBarItem.selectedImage = UIImage(systemName: "person.fill")
         tabBarItem.tag = 20
@@ -142,7 +142,7 @@ class LogInViewController: UIViewController {
     
     
     func showWrongLoginPasswordAlert() {
-        let alertVC = UIAlertController(title: "Внимание", message: "Не верно указан логи или пароль", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "Alert".localize(), message: "Wrong password or login".localize(), preferredStyle: .alert)
         let button1 = UIAlertAction(title: "ОК", style: .default)
    
         alertVC.addAction(button1)

@@ -61,6 +61,10 @@ extension String {
         stringArray[index] = character
         self = String(stringArray)
     }
+    
+    func localize()-> String {
+      NSLocalizedString(self, comment: "")
+    }
 }
 
 

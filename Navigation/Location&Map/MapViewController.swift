@@ -42,7 +42,7 @@ final class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
    private func configureTabBarItem() {
-        tabBarItem.title = "location"
+       tabBarItem.title = "location".localize()
         tabBarItem.image = UIImage(systemName: "globe.europe.africa")
         tabBarItem.selectedImage = UIImage(systemName: "globe.europe.africa.fill")
         tabBarItem.tag = 50
@@ -50,11 +50,10 @@ final class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
   private  func configureNavigationBar(){
-        let rightSaveButton = UIBarButtonItem(title: "Delete all pins", style: .plain, target: self, action: #selector(deleteAllPins))
-        rightSaveButton.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17, weight: .semibold)], for: .normal)
+      let rightSaveButton = UIBarButtonItem(title: "Delete all pins".localize(), style: .plain, target: self, action: #selector(deleteAllPins))
         self.navigationItem.rightBarButtonItem = rightSaveButton
         
-        let leftBeckButton = UIBarButtonItem(title: "Add Route", style: .plain, target: self, action: #selector(pressAddRoute))
+      let leftBeckButton = UIBarButtonItem(title: "Add Route".localize(), style: .plain, target: self, action: #selector(pressAddRoute))
         self.navigationItem.leftBarButtonItem = leftBeckButton
     }
     
