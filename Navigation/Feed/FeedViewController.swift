@@ -21,7 +21,7 @@ class FeedViewController: UIViewController {
     
     let passwordTextField: UITextField = {
         let textField = StatusTextField()
-        textField.configure(with: "enter word")
+        textField.configure(with: "enter word".localize())
         return textField
     }()
     
@@ -46,7 +46,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "Feed"
+        title = "Feed".localize()
         view.addSubview(stack)
         configureStack()
         setupViewModel()
@@ -65,7 +65,7 @@ class FeedViewController: UIViewController {
         }
     }
     func configureStack(){
-        let _ =  ["Кнопка 1","Кнопка 2"].map { [weak self] txt in
+        let _ =  ["Button 1".localize(),"Button 2".localize()].map { [weak self] txt in
             let but = StatusButton(frame: .zero, title: txt, tintColor: StatusButton.Constans.tintColor)
             but.configure()
             but.onTap = pushToPostVC
@@ -76,7 +76,7 @@ class FeedViewController: UIViewController {
         stack.addArrangedSubview(colorCkeckLabel)
         
         let _ : CustomButton = {
-            let but = StatusButton(frame: .zero, title: "Press", tintColor: StatusButton.Constans.tintColor)
+            let but = StatusButton(frame: .zero, title: "Press".localize(), tintColor: StatusButton.Constans.tintColor)
             but.configure()
             but.onTap = checkButtonPress
             stack.addArrangedSubview(but)
@@ -95,7 +95,7 @@ class FeedViewController: UIViewController {
     
     func configureTabBarItem() {
         
-        tabBarItem.title = "Feed"
+        tabBarItem.title = "Feed".localize()
         tabBarItem.image = UIImage(systemName: "newspaper.circle")
         tabBarItem.selectedImage = UIImage(systemName: "newspaper.circle.fill")
         tabBarItem.tag = 10

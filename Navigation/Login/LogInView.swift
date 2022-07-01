@@ -46,7 +46,7 @@ class LogInView: UIView {
     }()
     
     let logInButton: CustomButton = {
-        let but = CustomButton(frame: .zero, title: "Log in", tintColor: .white)
+        let but = CustomButton(frame: .zero, title: "Log in".localize(), tintColor: .white)
         but.translatesAutoresizingMaskIntoConstraints = false
         let pixelImage = UIImage(named: "bluePixel")
         but.setBackgroundImage(pixelImage?.withAlpha(1.0), for: .normal)
@@ -59,7 +59,7 @@ class LogInView: UIView {
     }()
     
     let createUserButton: CustomButton = {
-        let but = CustomButton(frame: .zero, title: "Create user", tintColor: UIColor.black)
+        let but = CustomButton(frame: .zero, title: "Create user".localize(), tintColor: UIColor.black)
         but.translatesAutoresizingMaskIntoConstraints = false
         return but
     }()
@@ -68,7 +68,7 @@ class LogInView: UIView {
     
     let bruteForceButton: CustomButton = {
         
-        let but = CustomButton(frame: .zero, title: "Bruteforce", tintColor: .white)
+        let but = CustomButton(frame: .zero, title: "Bruteforce".localize(), tintColor: .white)
         but.translatesAutoresizingMaskIntoConstraints = false
         let pixelImage = UIImage(named: "bluePixel")
         but.setBackgroundImage(pixelImage?.withAlpha(1.0), for: .normal)
@@ -86,7 +86,7 @@ class LogInView: UIView {
         login.translatesAutoresizingMaskIntoConstraints = false
         login.layer.borderColor = UIColor.lightGray.cgColor
         login.layer.borderWidth = 0.5
-        login.placeholder = "Email or phone"
+        login.placeholder = "Email or phone".localize()
         login.textColor = .black
         login.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         login.tintColor =  .lightGray
@@ -104,7 +104,7 @@ class LogInView: UIView {
         pass.translatesAutoresizingMaskIntoConstraints = false
         pass.layer.borderColor = UIColor.lightGray.cgColor
         pass.layer.borderWidth = 0.5
-        pass.placeholder = "Password"
+        pass.placeholder = "Password".localize()
         pass.textColor = .black
         pass.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         pass.tintColor =  .lightGray

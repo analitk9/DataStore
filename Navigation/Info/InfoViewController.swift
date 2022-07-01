@@ -79,7 +79,7 @@ class InfoViewController: UIViewController {
     }()
     
     lazy var alertButton: UIButton = {
-        let button = CustomButton(frame: .zero, title: "Alert", tintColor: nil)
+        let button = CustomButton(frame: .zero, title: "Alert".localize(), tintColor: nil)
         button.backgroundColor = .systemRed
         button.onTap = pressedAlertButton
         self.view.addSubview(button)
@@ -110,7 +110,7 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         view.backgroundColor = .white
-        title = "Info"
+        title = "Info".localize()
         fetchSerialization()
         fetchJson()
     }
@@ -211,14 +211,14 @@ class InfoViewController: UIViewController {
     }
     
     func pressedAlertButton (){
-        let alertVC = UIAlertController(title: "Внимание", message: "Выберите действие", preferredStyle: .alert)
-        let button1 = UIAlertAction(title: "Первое сообщение", style: .default){ _ in
+        let alertVC = UIAlertController(title: "Alert".localize(), message: "select action".localize(), preferredStyle: .alert)
+        let button1 = UIAlertAction(title: "First message".localize(), style: .default){ _ in
             print("Первое сообщение")
         }
-        let button2 = UIAlertAction(title: "Второе сообщение", style: .default){ _ in
+        let button2 = UIAlertAction(title: "Второе сообщение".localize(), style: .default){ _ in
             print("Второе сообщение")
         }
-        let button3 = UIAlertAction(title: "exit info VC", style: .default){ _ in
+        let button3 = UIAlertAction(title: "exit info VC".localize(), style: .default){ _ in
             self.dismiss(animated: true, completion: nil)
         }
         alertVC.addAction(button1)

@@ -95,7 +95,7 @@ class MediaViewController: UIViewController {
     
 
     func configureTabBarItem() {
-        tabBarItem.title = "Media"
+        tabBarItem.title = "Media".localize()
         tabBarItem.image = UIImage(systemName: "music.note.tv")
         tabBarItem.selectedImage = UIImage(systemName: "music.note.tv.fill")
         tabBarItem.tag = 30

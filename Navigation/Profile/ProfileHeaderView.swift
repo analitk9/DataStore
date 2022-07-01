@@ -27,7 +27,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     let statusTextField: UITextField = {
         let field = StatusTextField(frame: .zero)
         
-        field.configure(with: "Waiting for something...")
+        field.configure(with: "Waiting for something...".localize())
         return field
     }()
     
@@ -48,14 +48,14 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     }()
     
     let statusButton: StatusButton = {
-        let button = StatusButton(frame: .zero, title: "Show status", tintColor: StatusButton.Constans.tintColor)
+        let button = StatusButton(frame: .zero, title: "Show status".localize(), tintColor: StatusButton.Constans.tintColor)
         button.configure()
         return button
     }()
     
     let statusTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Waiting for something..."
+        label.text = "Waiting for something...".localize()
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray
         return label

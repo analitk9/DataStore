@@ -80,7 +80,7 @@ class ProfileViewController: UIViewController {
     }
     
     func configureTabBarItem() {
-        tabBarItem.title = "Profile"
+        tabBarItem.title = "Profile".localize()
         tabBarItem.image = UIImage(systemName: "person")
         tabBarItem.selectedImage = UIImage(systemName: "person.fill")
         tabBarItem.tag = 20
@@ -119,12 +119,12 @@ class ProfileViewController: UIViewController {
     }
     
     func showNewsAlert() {
-        let alertVC = UIAlertController(title: "Новость", message: "Пришла новая новость !", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "News".localize(), message: "New news has arrived!".localize(), preferredStyle: .alert)
         let button1 = UIAlertAction(title: "Ok", style: .default) { _ in
             self.profileViewModel.send(.newPostTake)
             self.tableView.reloadData()
         }
-        let button2 = UIAlertAction(title: "Stop timer", style: .default) { _ in
+        let button2 = UIAlertAction(title: "Stop timer".localize(), style: .default) { _ in
             self.profileViewModel.send(.stopTimer)
             self.tableView.reloadData()
         }
