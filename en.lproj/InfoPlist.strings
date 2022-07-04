@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Navigation
+
+  Created by Denis Evdokimov on 7/4/22.
+  
+*/
+
+NSMicrophoneUsageDescription = "need access to a microphone";
+NSLocationWhenInUseUsageDescription = "For maps to work, permission to access geolocation is required";

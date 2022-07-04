@@ -48,6 +48,7 @@ class PostTableViewCell: UITableViewCell {
     private lazy var likeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textColor = .black
         return label
@@ -103,6 +104,7 @@ class PostTableViewCell: UITableViewCell {
             likeLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor,constant: Constans.padding),
             likeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: Constans.padding),
             likeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -Constans.padding),
+            likeLabel.trailingAnchor.constraint(equalTo: viewsLabel.leadingAnchor, constant: -Constans.padding),
 
             viewsLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: Constans.padding),
             viewsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constans.padding),
@@ -120,13 +122,15 @@ class PostTableViewCell: UITableViewCell {
         descriptionLabel.text = nil
     }
     
-    func configure(_ post: Post) {
-        self.post = post
-        titleTextLabel.text = post.title
-        postImage.image = UIImage(named: post.image)
-        likeLabel.text = "Likes: \(String(post.likes))"
-        viewsLabel.text = "Views: \(String(post.views))"
-        descriptionLabel.text = String(post.description)
+    func configure(_ incomingPost: Post) {
+        self.post = incomingPost
+        titleTextLabel.text = incomingPost.title
+        postImage.image = UIImage(named: incomingPost.image)
+        let loc = "any_like".localize()
+        let formatted = String.localizedStringWithFormat(loc, incomingPost.likes)
+        likeLabel.text = "\(formatted)"
+        viewsLabel.text = "Views: \(String(incomingPost.views))"
+        descriptionLabel.text = String(incomingPost.description)
         layoutSubviews()
     }
     
