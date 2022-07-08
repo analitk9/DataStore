@@ -30,8 +30,9 @@ class FavouritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postCell")
-        self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = "Favourites".localize()
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .black)
+        navigationItem.title = "Favourites".localize()
+        navigationItem.titleView?.tintColor = .createColor(lightMode: .white, darkMode: .black)
         view.addSubview(tableView)
         tableView.dataSource = self
         configureLayout()

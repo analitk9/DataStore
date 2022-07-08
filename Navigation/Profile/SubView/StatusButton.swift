@@ -11,7 +11,7 @@ class StatusButton: CustomButton {
     enum Constans{
         static let cornerRadius: CGFloat = 15
         static let shadowOpacity: Float = 0.7
-        static let backgroundColor: UIColor =  UIColor(red: 11/255 , green: 88/255, blue: 233/255, alpha: 1)
+        static let backgroundColor: UIColor =  UIColor(patternImage: UIImage(named: "bluePixel")!)
         static let tintColor: UIColor = .white
         static let shadowOffset: CGSize = CGSize(width: 4, height: 4)
         static let shadowColor: CGColor = UIColor.black.cgColor

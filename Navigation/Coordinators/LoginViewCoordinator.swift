@@ -18,7 +18,7 @@ final class LoginViewCoordinator: Coordinator {
     
     
     func start() {
-        let loginChecker = LoginInspector(loginservice: .realm)
+        let loginChecker = LoginInspector(loginservice: .realm) 
         let model = LoginViewModel(loginChecker: loginChecker, toProfileVC: toProfileVC)
         
         let loginVC = viewControllerFactory.createController(type: .loginVC(model)) as! LogInViewController
