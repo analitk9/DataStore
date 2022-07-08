@@ -46,7 +46,7 @@ class LogInView: UIView {
     }()
     
     let logInButton: CustomButton = {
-        let but = CustomButton(frame: .zero, title: "Log in".localize(), tintColor: .white)
+        let but = CustomButton(frame: .zero, title: "Log in".localize(), tintColor: UIColor.createColor(lightMode: .white, darkMode: .black))
         but.translatesAutoresizingMaskIntoConstraints = false
         let pixelImage = UIImage(named: "bluePixel")
         but.setBackgroundImage(pixelImage?.withAlpha(1.0), for: .normal)
@@ -59,7 +59,7 @@ class LogInView: UIView {
     }()
     
     let createUserButton: CustomButton = {
-        let but = CustomButton(frame: .zero, title: "Create user".localize(), tintColor: UIColor.black)
+        let but = CustomButton(frame: .zero, title: "Create user".localize(), tintColor:  UIColor.createColor(lightMode: .black, darkMode: .white) )
         but.translatesAutoresizingMaskIntoConstraints = false
         return but
     }()
@@ -68,7 +68,7 @@ class LogInView: UIView {
     
     let bruteForceButton: CustomButton = {
         
-        let but = CustomButton(frame: .zero, title: "Bruteforce".localize(), tintColor: .white)
+        let but = CustomButton(frame: .zero, title: "Bruteforce".localize(), tintColor: UIColor.createColor(lightMode: .white, darkMode: .black))
         but.translatesAutoresizingMaskIntoConstraints = false
         let pixelImage = UIImage(named: "bluePixel")
         but.setBackgroundImage(pixelImage?.withAlpha(1.0), for: .normal)
@@ -120,7 +120,7 @@ class LogInView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .white
+        backgroundColor = .createColor(lightMode: .white, darkMode: .black)
         passWordStack.addArrangedSubview(passwordText)
         passWordStack.addArrangedSubview(spinnerView)
         stack.addArrangedSubview(loginText)

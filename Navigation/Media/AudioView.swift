@@ -14,12 +14,13 @@ class AudioView: UIView {
         let label = UILabel()
         label.text = "Test Song"
         label.textAlignment = .center
+        label.textColor = .createColor(lightMode: .black, darkMode: .white)
         
         return label
     }()
     
     let previousButton: CustomButton = {
-        let but = CustomButton(frame: .zero, title: nil, tintColor: .black)
+        let but = CustomButton(frame: .zero, title: nil, tintColor: UIColor.createColor(lightMode: .black, darkMode: .white))
         but.setImage(UIImage(systemName: "backward.end"), for: .normal)
         but.setImage(UIImage(systemName: "backward.end.fill"), for: .highlighted)
         but.layer.borderWidth = 1
@@ -27,7 +28,7 @@ class AudioView: UIView {
     }()
     
     let pauseButton: CustomButton = {
-        let but = CustomButton(frame: .zero, title: nil, tintColor: .black)
+        let but = CustomButton(frame: .zero, title: nil, tintColor: UIColor.createColor(lightMode: .black, darkMode: .white))
         but.setImage(UIImage(systemName: "pause"), for: .normal)
         but.setImage(UIImage(systemName: "pause.fill"), for: .highlighted)
         but.layer.borderWidth = 1
@@ -35,7 +36,7 @@ class AudioView: UIView {
     }()
     
     let stopButton: CustomButton = {
-        let but = CustomButton(frame: .zero, title: nil, tintColor: .black)
+        let but = CustomButton(frame: .zero, title: nil, tintColor: UIColor.createColor(lightMode: .black, darkMode: .white))
         but.setImage(UIImage(systemName: "stop"), for: .normal)
         but.setImage(UIImage(systemName: "stop.fill"), for: .highlighted)
         but.layer.borderWidth = 1
@@ -43,7 +44,7 @@ class AudioView: UIView {
     }()
     
     let playButton: CustomButton = {
-        let but = CustomButton(frame: .zero, title: nil, tintColor: .black)
+        let but = CustomButton(frame: .zero, title: nil, tintColor: UIColor.createColor(lightMode: .black, darkMode: .white))
         but.setImage(UIImage(systemName: "play"), for: .normal)
         but.setImage(UIImage(systemName: "play.fill"), for: .highlighted)
         but.layer.borderWidth = 1
@@ -51,7 +52,7 @@ class AudioView: UIView {
     }()
     
     let nextButton: CustomButton = {
-        let but = CustomButton(frame: .zero, title: nil, tintColor: .black)
+        let but = CustomButton(frame: .zero, title: nil, tintColor: UIColor.createColor(lightMode: .black, darkMode: .white))
         but.setImage(UIImage(systemName: "forward.end"), for: .normal)
         but.setImage(UIImage(systemName: "forward.end.fill"), for: .highlighted)
         but.layer.borderWidth = 1
@@ -96,6 +97,7 @@ class AudioView: UIView {
         vStack.addArrangedSubview(hStack)
         
         addSubview(vStack)
+        
     }
     
     required init?(coder: NSCoder) {

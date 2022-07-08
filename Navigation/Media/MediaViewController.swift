@@ -58,7 +58,7 @@ class MediaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .black)
         view.addSubview(audioView)
         view.addSubview(tableView)
         view.addSubview(recButton)

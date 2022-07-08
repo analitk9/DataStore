@@ -32,8 +32,9 @@ final class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func loadView() {
         super.loadView()
-        view.backgroundColor = .white
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .black)
         navigationItem.title = tabBarItem.title
+        navigationItem.titleView?.tintColor = .createColor(lightMode: .white, darkMode: .black)
         configureNavigationBar()
         setupMapView()
         checkUserLocationPermissions()

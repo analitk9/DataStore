@@ -82,7 +82,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         
         
         contentView.addSubviews([statusTextLabel, profileNameLabel, profileAvatarView, statusButton, statusTextField,timerLabel])
-        contentView.backgroundColor = UIColor(red: 199/255, green: 198/255, blue: 205/255, alpha: 1)
+        contentView.backgroundColor = UIColor.createColor(lightMode:  UIColor(red: 199/255, green: 198/255, blue: 205/255, alpha: 1), darkMode: .darkGray)
         
         
     }

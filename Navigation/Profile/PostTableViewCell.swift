@@ -24,7 +24,7 @@ class PostTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.textColor = .black
+        label.textColor = .createColor(lightMode: .black, darkMode: .white)
         return label
     }()
     
@@ -32,7 +32,7 @@ class PostTableViewCell: UITableViewCell {
         let imageView = UIImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .black
+        imageView.backgroundColor = .createColor(lightMode: .lightGray , darkMode: .black)
         return imageView
     }()
     
@@ -50,7 +50,7 @@ class PostTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .black
+        label.textColor = .gray
         return label
     }()
     
@@ -58,7 +58,7 @@ class PostTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .black
+        label.textColor = .gray
         return label
     }()
     
