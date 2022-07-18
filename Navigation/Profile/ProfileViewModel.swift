@@ -137,3 +137,12 @@ extension ProfileViewModel {
         
     }
 }
+
+extension ProfileViewModel: PostViewCellDelegate {
+    
+    func addToFavourite(_ post: Post) {
+        CoreDataService.shared.saveFavouritePost(post)
+    }
+    
+    
+}

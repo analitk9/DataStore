@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 enum AppConfiguration: String, CaseIterable {
     case people = "https://swapi.dev/api/people/8"
@@ -20,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private var appCoordinator: ApplicationCoordinator!
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        FirebaseApp.configure()
         let address = AppConfiguration.allCases.randomElement()?.rawValue
         if let adrdress = address {
             NetworkService.fetchURLTask(adrdress)

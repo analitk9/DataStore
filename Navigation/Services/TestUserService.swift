@@ -8,8 +8,9 @@
 import Foundation
 class TestUserService{
     let user: User
-    init(){
-        user = User(name: "Тест")
+    init(userName: String ){
+        
+        user = User(name: userName)
     }
 }
 

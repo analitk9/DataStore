@@ -18,6 +18,16 @@ struct Post {
     
 }
 
+extension Post: Equatable {
+    static func == (lhs: Post, rhs: Post) -> Bool {
+            return
+                lhs.title == rhs.title &&
+                lhs.author == rhs.author &&
+                lhs.description == rhs.description &&
+                lhs.image == rhs.image
+        }
+}
+
 class Posts{
     
   private  var posts: [Post] = [Post]()

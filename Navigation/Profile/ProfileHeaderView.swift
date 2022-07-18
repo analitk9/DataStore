@@ -109,7 +109,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
             make.top.equalTo(profileAvatarView.snp.bottom).offset(Constans.padding*2)
         }
         profileNameLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(contentView.snp.centerX)
+            make.leading.equalTo(profileAvatarView.snp.trailing).offset(Constans.padding)
             make.top.equalTo(contentView.snp.top).offset(Constans.padding)
         }
         statusTextLabel.snp.makeConstraints { make in

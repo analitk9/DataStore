@@ -14,10 +14,10 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .lightGray
         if let post = curentPost {
             title = post.title
-            view.backgroundColor = .lightGray
+            
         }
         configureBarButton()
         

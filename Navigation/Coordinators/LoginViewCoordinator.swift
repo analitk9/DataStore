@@ -7,7 +7,7 @@
 
 import UIKit
 final class LoginViewCoordinator: Coordinator {
-    private let loginFactory = MyLoginFactory()
+   // private let loginFactory = MyLoginFactory(typeOfServise: <#LoginService#>)
     private weak var navigationController: UINavigationController?
     private let viewControllerFactory: ViewControllerFactoryProtocol
     init(navigationController: UINavigationController, factory: ViewControllerFactoryProtocol){
@@ -18,9 +18,11 @@ final class LoginViewCoordinator: Coordinator {
     
     
     func start() {
-        let loginVC = viewControllerFactory.createController(type: .loginVC) as! LogInViewController
-        loginVC.delegate = loginFactory.createLogInspector()
-        loginVC.toProfileVC = toProfileVC(name:)
+        let loginChecker = LoginInspector(loginservice: .realm)
+        let model = LoginViewModel(loginChecker: loginChecker, toProfileVC: toProfileVC)
+        
+        let loginVC = viewControllerFactory.createController(type: .loginVC(model)) as! LogInViewController
+ 
         navigationController?.setViewControllers([loginVC], animated: false)
         
     }
