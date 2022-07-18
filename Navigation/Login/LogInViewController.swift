@@ -38,7 +38,7 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        scrollView.backgroundColor = .createColor(lightMode: .white, darkMode: .black)
         navigationController?.navigationBar.isHidden = true
         
         view.addSubview(scrollView)
@@ -65,7 +65,7 @@ class LogInViewController: UIViewController {
         }
         
         setupViewModel()
-        loginViewModel.send(.autoLogin)
+       loginViewModel.send(.autoLogin)
     }
     
     override func viewDidLayoutSubviews() {

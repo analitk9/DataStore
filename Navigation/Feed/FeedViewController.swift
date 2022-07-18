@@ -45,8 +45,9 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .black)
         title = "Feed".localize()
+        navigationItem.titleView?.tintColor = .createColor(lightMode: .white, darkMode: .black)
         view.addSubview(stack)
         configureStack()
         setupViewModel()
