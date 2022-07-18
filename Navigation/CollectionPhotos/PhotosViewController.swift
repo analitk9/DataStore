@@ -48,7 +48,7 @@ class PhotosViewController: UIViewController {
             let distance = round(stDate.distance(to: fnDate) * 10 / 10.0)
             print("Start \(stDate.ISO8601Format()) | finish \(fnDate.ISO8601Format()) with \(qos.rawValue) distance \(distance)")
         }
-        navigationItem.title = "Photo Gallery"
+        navigationItem.title = "Photo Gallery".localize()
         navigationController?.navigationBar.prefersLargeTitles = false
         view.backgroundColor = .white
         

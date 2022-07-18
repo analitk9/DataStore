@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Navigation
+
+  Created by Denis Evdokimov on 7/4/22.
+  
+*/
+
+NSMicrophoneUsageDescription = "нужен доступ к микрофону";
+NSLocationWhenInUseUsageDescription = "Для работы карт необходимо разрешение  доступа к геолокации";
