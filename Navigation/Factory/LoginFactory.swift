@@ -6,16 +6,22 @@
 //
 
 import Foundation
+
+enum LoginServiceType {
+    case firebase
+    case realm
+}
 protocol LoginFactory{
-    func createLogInspector(typeOfServise: LoginService)-> LoginInspector
+    func createLogInspector(typeOfServise: LoginServiceType)-> LoginInspector
 }
 
 class MyLoginFactory: LoginFactory {
-    let typeOfServise: LoginService
-    init (typeOfServise: LoginService){
+    let typeOfServise: LoginServiceType
+    init (typeOfServise: LoginServiceType){
         self.typeOfServise = typeOfServise
     }
-    func createLogInspector(typeOfServise: LoginService) -> LoginInspector {
-        LoginInspector( loginservice: typeOfServise)
+    func createLogInspector(typeOfServise: LoginServiceType) -> LoginInspector {
+        LoginInspector(loginservice: RealmService())
+      //  LoginInspector( loginservice: typeOfServise)
     }
 }

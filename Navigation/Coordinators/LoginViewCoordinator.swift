@@ -18,8 +18,10 @@ final class LoginViewCoordinator: Coordinator {
     
     
     func start() {
-        let loginChecker = LoginInspector(loginservice: .realm) 
-        let model = LoginViewModel(loginChecker: loginChecker, toProfileVC: toProfileVC)
+      //  let firebaseService = FirebaseService()
+        let realmService = RealmService()
+        let loginChecker = LoginInspector(loginservice: realmService)
+        let model = LoginViewModel(loginChecker: loginChecker, bfService: BruteForceService(), toProfileVC: toProfileVC)
         
         let loginVC = viewControllerFactory.createController(type: .loginVC(model)) as! LogInViewController
  

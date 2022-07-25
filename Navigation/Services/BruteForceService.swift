@@ -6,8 +6,11 @@
 //
 
 import Foundation
+protocol BruteForceServiceProtocol {
+    func bruteForce(passwordToUnlock: String,  complition: @escaping ((String)->Void))
+}
 
-class BruteForceService {
+class BruteForceService: BruteForceServiceProtocol {
     
     
     func bruteForce(passwordToUnlock: String,  complition: @escaping ((String)->Void)) {

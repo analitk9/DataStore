@@ -17,12 +17,14 @@ class LoginViewModel {
             onStateChanged?(state) // сюда модель сообщает о изменении своего состояния
         }
     }
+    var bfService: BruteForceServiceProtocol
     var checkerDelegate: LoginViewCheckerDelegate
     var onStateChanged: ((LoginState) -> Void)?
     var toProfileVC: ((String)->Void)
     
-    init(loginChecker: LoginViewCheckerDelegate,toProfileVC: @escaping ((String)->Void)){
+    init(loginChecker: LoginViewCheckerDelegate,bfService: BruteForceServiceProtocol, toProfileVC: @escaping ((String)->Void)){
         self.toProfileVC = toProfileVC
+        self.bfService = bfService
         checkerDelegate = loginChecker
         
     }
@@ -61,13 +63,10 @@ class LoginViewModel {
     }
     
     private func bruteForcePress (){
-        DispatchQueue.global(qos: .background).async {
-            let bfService = BruteForceService()
-            bfService.bruteForce(passwordToUnlock: "123"){[weak self] pass in
-                DispatchQueue.main.async {
-                    guard let self = self else { return }
-                    self.state = .passwordBruteForce(pass)
-                }
+        bfService.bruteForce(passwordToUnlock: "123") { [weak self] pass in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.state = .passwordBruteForce(pass)
             }
         }
     }

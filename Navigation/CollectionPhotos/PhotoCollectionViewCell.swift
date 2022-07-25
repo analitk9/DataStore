@@ -10,6 +10,7 @@ import UIKit
 class PhotoCollectionViewCell: UICollectionViewCell {
     let imageView: UIImageView = {
         let view = UIImageView()
+            
         view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
