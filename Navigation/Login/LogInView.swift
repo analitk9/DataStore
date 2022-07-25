@@ -58,6 +58,20 @@ class LogInView: UIView {
         return but
     }()
     
+    let bioAuthButton: CustomButton = {
+      let but = CustomButton(frame: .zero, title: "", tintColor: UIColor.createColor(lightMode: .white, darkMode: .black))
+        but.translatesAutoresizingMaskIntoConstraints = false
+      //  but.isHidden = true
+        let pixelImage = UIImage(named: "bluePixel")
+        but.setBackgroundImage(pixelImage?.withAlpha(1.0), for: .normal)
+        but.setBackgroundImage(pixelImage?.withAlpha(0.8), for: .highlighted)
+        but.setBackgroundImage(pixelImage?.withAlpha(0.8), for: .selected)
+        but.setBackgroundImage(pixelImage?.withAlpha(0.8), for: .disabled)
+        but.clipsToBounds = true
+        but.layer.cornerRadius = 10
+       return but
+    }()
+    
     let createUserButton: CustomButton = {
         let but = CustomButton(frame: .zero, title: "Create user".localize(), tintColor:  UIColor.createColor(lightMode: .black, darkMode: .white) )
         but.translatesAutoresizingMaskIntoConstraints = false
@@ -127,7 +141,7 @@ class LogInView: UIView {
         stack.addArrangedSubview(passWordStack)
         spinnerView.hidesWhenStopped = true
        
-        addSubviews([stack, logoView, logInButton, bruteForceButton, createUserButton])
+        addSubviews([stack, logoView, logInButton, bruteForceButton, createUserButton, bioAuthButton])
 
     }
     
@@ -164,6 +178,10 @@ class LogInView: UIView {
             bruteForceButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: Constans.padding),
             bruteForceButton.trailingAnchor.constraint(equalTo: logInButton.trailingAnchor),
             bruteForceButton.heightAnchor.constraint(equalToConstant: Constans.imageHeight / 2),
+            bioAuthButton.leadingAnchor.constraint(equalTo: stack.leadingAnchor),
+            bioAuthButton.trailingAnchor.constraint(equalTo: stack.trailingAnchor),
+            bioAuthButton.topAnchor.constraint(equalTo: bruteForceButton.bottomAnchor, constant: Constans.padding),
+            bioAuthButton.heightAnchor.constraint(equalToConstant: Constans.imageHeight / 2),
         ])
     }
 }
