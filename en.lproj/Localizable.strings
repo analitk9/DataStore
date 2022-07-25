@@ -23,6 +23,7 @@
 "Profile" = "Profile";
 "Wrong password or login" = "Wrong password or login";
 "Log in" = "Log in";
+"Log in with FaceID/TouchID" = "Log in with FaceID/TouchID";
 "Create user" = "Create user";
 "Bruteforce" = "Bruteforce";
 "Email or phone" = "Email or phone";

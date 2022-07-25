@@ -12,14 +12,15 @@ protocol LoginViewCheckerDelegate: AnyObject {
 }
 
 class LoginViewModel {
-    private(set) var state: LoginState = .initial {
+    private(set) var state: LoginViewModelState = .initial {
         didSet {
             onStateChanged?(state) // сюда модель сообщает о изменении своего состояния
         }
     }
     var checkerDelegate: LoginViewCheckerDelegate
-    var onStateChanged: ((LoginState) -> Void)?
+    var onStateChanged: ((LoginViewModelState) -> Void)?
     var toProfileVC: ((String)->Void)
+    let localAuthService = LocalAuthorizationService() // реализовать через протокол
     
     init(loginChecker: LoginViewCheckerDelegate,toProfileVC: @escaping ((String)->Void)){
         self.toProfileVC = toProfileVC
@@ -37,7 +38,7 @@ class LoginViewModel {
         }
     }
     
-    func send(_ action: LoginAction){
+    func send(_ action: LoginViewControllerAction){
         switch action {
             
         case .bruteForceButtonPress:
@@ -57,7 +58,16 @@ class LoginViewModel {
             checkerDelegate.autoLogin{ result in
                 self.handlingResult(result)
             }
-       }
+        case .bioAuthButtonPress:
+            localAuthService.AuthenticationWithBiometrics { result in
+                self.handlingResult(result)
+            }
+        case .ready:
+            localAuthService.authorizeIfPossible { possible in
+                self.state = .isBioPossible(possible)
+            }
+            state = .setBioImage(localAuthService.BiometryType()) 
+        }
     }
     
     private func bruteForcePress (){
@@ -74,23 +84,29 @@ class LoginViewModel {
     
 }
 
+
 extension LoginViewModel{
     
-    enum LoginAction { //  состояния вью
+    enum LoginViewControllerAction { //  состояния вью
         case loginButtonPress(String?, String?)
         case bruteForceButtonPress
         case createUserButtonPress(String?, String?)
         case autoLogin
+        case bioAuthButtonPress
+        case ready
     }
     
-    enum LoginState { // состояния модели
+    enum LoginViewModelState { // состояния модели
         
         case initial
         case login
         case logout
         case passwordBruteForce(String)
-        
         case error(LoginError)
+        case loginWithBio
+        case loginBioIfPossible(Bool)
+        case isBioPossible(Bool)
+        case setBioImage(AuthType)
         
     }
 }
