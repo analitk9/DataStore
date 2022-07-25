@@ -15,6 +15,8 @@ enum LoginError: Error {
     case createError
     case fbError(String)
     case wrongAutoLogin
+    case notPossibleBioAuth
+    case bioAuthError(String)
 }
 
 extension LoginError {
@@ -28,6 +30,9 @@ extension LoginError {
         case .correct: return "Верно"
         case .loginError: return "Логин или пароль не верные"
         case .createError: return "Ошибка создания пользователя"
+        case .notPossibleBioAuth: return "Авторизация по  FaceID/TouchID  не доступна"
+        case  let .bioAuthError(bioError):
+            return bioError
         case let .fbError(fbError):
             return fbError
         }
