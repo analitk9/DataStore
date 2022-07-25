@@ -39,6 +39,8 @@
 		64752271271C224300014ECF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64752270271C224300014ECF /* PostViewController.swift */; };
 		64752273271C227A00014ECF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64752272271C227A00014ECF /* Post.swift */; };
 		64752275271C22FA00014ECF /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64752274271C22FA00014ECF /* InfoViewController.swift */; };
+		649B76A0288EABE3004BB3A8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 649B769F288EABE3004BB3A8 /* SnapKit */; };
+		649B76A3288EAC7D004BB3A8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 649B76A2288EAC7D004BB3A8 /* FirebaseAuth */; };
 		649D270F2732804A006F15EB /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D270E2732804A006F15EB /* LogInViewController.swift */; };
 		649D271127328854006F15EB /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D271027328854006F15EB /* LogInView.swift */; };
 		649D271527329240006F15EB /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D271427329240006F15EB /* Extention.swift */; };
@@ -80,11 +82,9 @@
 		64FF983327B3ED7100EE2352 /* ErrorAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF983227B3ED7100EE2352 /* ErrorAlertService.swift */; };
 		64FF983727BA82C000EE2352 /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF983627BA82C000EE2352 /* PostError.swift */; };
 		64FF983927BA8FA700EE2352 /* UserServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF983827BA8FA700EE2352 /* UserServiceError.swift */; };
-		6BA0D1F4D8FBD59DF67111F2 /* Pods_Navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDC8CB6FC099B7C60E1575B /* Pods_Navigation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B83078C6B4CCEAA8CCCBC7B /* Pods-Navigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.debug.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.debug.xcconfig"; sourceTree = "<group>"; };
 		640E156427C8D696004EEE4D /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		640E156627C8D6DA004EEE4D /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		640E156927C8EC54004EEE4D /* Happy song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Happy song.mp3"; sourceTree = "<group>"; };
@@ -160,7 +160,6 @@
 		64FF983627BA82C000EE2352 /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
 		64FF983827BA8FA700EE2352 /* UserServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceError.swift; sourceTree = "<group>"; };
 		8EDC8CB6FC099B7C60E1575B /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F55A02883B52D290C2B08363 /* Pods-Navigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.release.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,10 +167,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BA0D1F4D8FBD59DF67111F2 /* Pods_Navigation.framework in Frameworks */,
 				64AF7DFC278EE99900EA7794 /* iOSIntPackage in Frameworks */,
 				649EB3B7282A7FD80074F7DB /* Realm in Frameworks */,
+				649B76A0288EABE3004BB3A8 /* SnapKit in Frameworks */,
 				649EB3B9282A7FD80074F7DB /* RealmSwift in Frameworks */,
+				649B76A3288EAC7D004BB3A8 /* FirebaseAuth in Frameworks */,
 				645CA8652817DDAA005F88BC /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +260,6 @@
 				649E61B2287327C9007723B7 /* Localizable.stringsdict */,
 				64752256271C1EAD00014ECF /* Navigation */,
 				64752255271C1EAD00014ECF /* Products */,
-				D330BB3B6F85AEF2DB80FF1C /* Pods */,
 				2D1A9FCC3D1CAE764A995C32 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -426,15 +425,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		D330BB3B6F85AEF2DB80FF1C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2B83078C6B4CCEAA8CCCBC7B /* Pods-Navigation.debug.xcconfig */,
-				F55A02883B52D290C2B08363 /* Pods-Navigation.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -458,6 +448,8 @@
 				645CA8642817DDAA005F88BC /* YouTubeiOSPlayerHelper */,
 				649EB3B6282A7FD80074F7DB /* Realm */,
 				649EB3B8282A7FD80074F7DB /* RealmSwift */,
+				649B769F288EABE3004BB3A8 /* SnapKit */,
+				649B76A2288EAC7D004BB3A8 /* FirebaseAuth */,
 			);
 			productName = Navigation;
 			productReference = 64752254271C1EAD00014ECF /* Navigation.app */;
@@ -492,6 +484,8 @@
 				64AF7DFA278EE99900EA7794 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
 				645CA8632817DDAA005F88BC /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 				649EB3B5282A7FD80074F7DB /* XCRemoteSwiftPackageReference "realm-swift" */,
+				649B769E288EABE3004BB3A8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				649B76A1288EAC7D004BB3A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 64752255271C1EAD00014ECF /* Products */;
 			projectDirPath = "";
@@ -532,18 +526,16 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Navigation-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 		EE75FA3D8898D7F7B3318AB3 /* [CP] Embed Pods Frameworks */ = {
@@ -552,15 +544,14 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Navigation/Pods-Navigation-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Navigation/Pods-Navigation-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Navigation/Pods-Navigation-frameworks.sh\"\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -785,7 +776,6 @@
 		};
 		64752269271C1EAF00014ECF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B83078C6B4CCEAA8CCCBC7B /* Pods-Navigation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -814,7 +804,6 @@
 		};
 		6475226A271C1EAF00014ECF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F55A02883B52D290C2B08363 /* Pods-Navigation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -873,6 +862,22 @@
 				kind = branch;
 			};
 		};
+		649B769E288EABE3004BB3A8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		649B76A1288EAC7D004BB3A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		649EB3B5282A7FD80074F7DB /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -896,6 +901,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 645CA8632817DDAA005F88BC /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
 			productName = YouTubeiOSPlayerHelper;
+		};
+		649B769F288EABE3004BB3A8 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 649B769E288EABE3004BB3A8 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		649B76A2288EAC7D004BB3A8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 649B76A1288EAC7D004BB3A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 		649EB3B6282A7FD80074F7DB /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
