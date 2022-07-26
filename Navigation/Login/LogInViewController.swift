@@ -71,6 +71,7 @@ class LogInViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         configureLayout()
@@ -115,6 +116,7 @@ class LogInViewController: UIViewController {
                 self.loginView.passwordText.isSecureTextEntry = false
                 self.loginView.passwordText.text = pass
             case let .isBioPossible(possible):
+                print("среагировали на isBioPossible")
                 self.loginView.bioAuthButton.isHidden = !possible
             case let .setBioImage(image):
                 self.loginView.bioAuthButton.setImage(UIImage(systemName: image.rawValue), for: .normal)
@@ -122,16 +124,14 @@ class LogInViewController: UIViewController {
                 print("initial")
             }
         }
+        print("Засетапили модель")
     }
-    
-    
-    
+
      func loginButtonPress() {
           let loginText = loginView.loginText.text
           let passwordText = loginView.passwordText.text
          loginViewModel.send(.loginButtonPress(loginText, passwordText))
      }
-    
     
     func bruteForcePress (){
         loginView.spinnerView.startAnimating()

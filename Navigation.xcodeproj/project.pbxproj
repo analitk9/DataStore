@@ -42,6 +42,7 @@
 		649B76A0288EABE3004BB3A8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 649B769F288EABE3004BB3A8 /* SnapKit */; };
 		649B76A3288EAC7D004BB3A8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 649B76A2288EAC7D004BB3A8 /* FirebaseAuth */; };
 		649B76A5288EC61F004BB3A8 /* LocalAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B76A4288EC61F004BB3A8 /* LocalAuthorizationService.swift */; };
+		649B76A7288F1B1D004BB3A8 /* LocalNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B76A6288F1B1D004BB3A8 /* LocalNotificationsService.swift */; };
 		649D270F2732804A006F15EB /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D270E2732804A006F15EB /* LogInViewController.swift */; };
 		649D271127328854006F15EB /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D271027328854006F15EB /* LogInView.swift */; };
 		649D271527329240006F15EB /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D271427329240006F15EB /* Extention.swift */; };
@@ -120,6 +121,7 @@
 		64752272271C227A00014ECF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		64752274271C22FA00014ECF /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		649B76A4288EC61F004BB3A8 /* LocalAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthorizationService.swift; sourceTree = "<group>"; };
+		649B76A6288F1B1D004BB3A8 /* LocalNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsService.swift; sourceTree = "<group>"; };
 		649D270E2732804A006F15EB /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		649D271027328854006F15EB /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		649D271427329240006F15EB /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 			children = (
 				649EB3C22832401E0074F7DB /* CoreData */,
 				649D27162732C56B006F15EB /* KeyboardHelper.swift */,
+				649B76A6288F1B1D004BB3A8 /* LocalNotificationsService.swift */,
 				64D748FC277859E1009B7677 /* CurrentUserService.swift */,
 				64FF983827BA8FA700EE2352 /* UserServiceError.swift */,
 				64D2C6F1279D636000DED7E5 /* PasswordCheckerService.swift */,
@@ -568,6 +571,7 @@
 				64D2C767279ED23000DED7E5 /* PostViewCoordinator.swift in Sources */,
 				641982592742E0E8008C9A41 /* PhotosViewController.swift in Sources */,
 				64FF983927BA8FA700EE2352 /* UserServiceError.swift in Sources */,
+				649B76A7288F1B1D004BB3A8 /* LocalNotificationsService.swift in Sources */,
 				64D2C769279ED24400DED7E5 /* ProfileViewCoordinator.swift in Sources */,
 				64752271271C224300014ECF /* PostViewController.swift in Sources */,
 				64752258271C1EAD00014ECF /* AppDelegate.swift in Sources */,

@@ -20,7 +20,7 @@ protocol LocalAuthorizationServiceProtocol{
     func AuthenticationWithBiometrics(_ complition: @escaping (Result<String, LoginError>)-> Void )
 }
 
-class LocalAuthorizationService {
+class LocalAuthorizationService: LocalAuthorizationServiceProtocol {
     let context: LAContext = {
         let context = LAContext()
         return context
@@ -30,14 +30,12 @@ class LocalAuthorizationService {
     
     func authorizeIfPossible(_ authorizationFinished: @escaping (Bool) -> Void) {
         let permission = context.canEvaluatePolicy(policy, error: &policyError)
-       // DispatchQueue.main.async {
         if permission {
             authorizationFinished(permission)
         }else if let policyError = self.policyError {
             print(policyError.localizedDescription)
             authorizationFinished(false)
         }
-      //  }
     }
     
     func BiometryType() -> AuthType {
@@ -52,13 +50,11 @@ class LocalAuthorizationService {
     func AuthenticationWithBiometrics(_ complition: @escaping (Result<String, LoginError>)-> Void ) {
         let reason = "Log in to your account"
         context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
-            if success {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if success {
                     complition(.success("BIO LOGIN"))
-                }
-            } else {
-                if error != nil {
-                    DispatchQueue.main.async {
+                } else {
+                    if error != nil {
                         complition(.failure(.bioAuthError(error!.localizedDescription)))
                     }
                 }
