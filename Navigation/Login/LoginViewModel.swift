@@ -20,11 +20,12 @@ class LoginViewModel {
     var checkerDelegate: LoginViewCheckerDelegate
     var onStateChanged: ((LoginViewModelState) -> Void)?
     var toProfileVC: ((String)->Void)
-    let localAuthService = LocalAuthorizationService() // реализовать через протокол
+    let localAuthService: LocalAuthorizationServiceProtocol
     
-    init(loginChecker: LoginViewCheckerDelegate,toProfileVC: @escaping ((String)->Void)){
+    init(loginChecker: LoginViewCheckerDelegate, localAuthService: LocalAuthorizationServiceProtocol, toProfileVC: @escaping ((String)->Void)){
         self.toProfileVC = toProfileVC
-        checkerDelegate = loginChecker
+        self.checkerDelegate = loginChecker
+        self.localAuthService = localAuthService
         
     }
     

@@ -22,10 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         FirebaseApp.configure()
-        let address = AppConfiguration.allCases.randomElement()?.rawValue
-        if let adrdress = address {
-            NetworkService.fetchURLTask(adrdress)
-        }
+//        let address = AppConfiguration.allCases.randomElement()?.rawValue
+//        if let adrdress = address {
+//            NetworkService.fetchURLTask(adrdress)
+//        }
         guard let scene = (scene as? UIWindowScene) else { return }
         viewControllerFactory = ViewControllerFactory()
         appCoordinator = ApplicationCoordinator(scene: scene, factory: viewControllerFactory)
