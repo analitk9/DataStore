@@ -29,7 +29,11 @@ final class ProfileViewCoordinator: Coordinator {
         #endif
         let profileVC = viewControllerFactory.createController(type: .profileVC(model, userService, name)) as! ProfileViewController
       
-        navigationController?.pushViewController(profileVC, animated: true)
+        guard let navigationController = navigationController else {
+            return
+        }
+
+        navigationController.pushViewController(profileVC, animated: true)
         
     }
     

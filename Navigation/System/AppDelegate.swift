@@ -6,14 +6,19 @@
 //
 
 import UIKit
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let localNotifications = LocalNotificationsService()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+ 
+       localNotifications.registerUpdatesCategory()
+       localNotifications.registeForLatestUpdatesIfPossible()
+       localNotifications.registryNotification()
+        
         return true
     }
 

@@ -21,6 +21,15 @@ extension UIColor {
             rendererContext.fill(CGRect(origin: .zero, size: size))
         }
     }
+    
+    static func createColor(lightMode: UIColor, darkMode: UIColor) -> UIColor {
+        
+        guard #available(iOS 13.0, *) else { return lightMode }
+        
+        return  UIColor { (traitCollection)-> UIColor in
+            return traitCollection.userInterfaceStyle == .light ? lightMode : darkMode
+        }
+    }
 }
 
 extension UITextField {
@@ -60,6 +69,10 @@ extension String {
         var stringArray = Array(self)
         stringArray[index] = character
         self = String(stringArray)
+    }
+    
+    func localize()-> String {
+      NSLocalizedString(self, comment: "")
     }
 }
 

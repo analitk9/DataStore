@@ -25,7 +25,7 @@ class PhotosViewController: UIViewController {
     let collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.backgroundColor = .white
+        collection.backgroundColor = .createColor(lightMode: .white, darkMode: .black)
         return collection
     }()
     
@@ -48,9 +48,10 @@ class PhotosViewController: UIViewController {
             let distance = round(stDate.distance(to: fnDate) * 10 / 10.0)
             print("Start \(stDate.ISO8601Format()) | finish \(fnDate.ISO8601Format()) with \(qos.rawValue) distance \(distance)")
         }
-        navigationItem.title = "Photo Gallery"
+        navigationItem.title = "Photo Gallery".localize()
+        navigationItem.titleView?.tintColor = .createColor(lightMode: .black, darkMode: .white)
         navigationController?.navigationBar.prefersLargeTitles = false
-        view.backgroundColor = .white
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .black)
         
         view.addSubview(collectionView)
         collectionView.dataSource = self

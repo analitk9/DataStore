@@ -6,6 +6,10 @@
 	<false/>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>нужен доступ к микрофону</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Для авторизации включите  Face ID</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Для работы карт необходимо разрешение  доступа к геолокации</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

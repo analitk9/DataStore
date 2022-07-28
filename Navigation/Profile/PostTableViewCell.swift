@@ -6,6 +6,9 @@
 //
 
 import UIKit
+protocol PostViewCellDelegate {
+    func addToFavourite(_ post: Post)
+}
 
 class PostTableViewCell: UITableViewCell {
     
@@ -13,12 +16,15 @@ class PostTableViewCell: UITableViewCell {
         static let padding: CGFloat = 16
     }
     
+    var delegate: PostViewCellDelegate?
+    var post: Post?
+    
     private lazy var titleTextLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.textColor = .black
+        label.textColor = .createColor(lightMode: .black, darkMode: .white)
         return label
     }()
     
@@ -26,7 +32,7 @@ class PostTableViewCell: UITableViewCell {
         let imageView = UIImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .black
+        imageView.backgroundColor = .createColor(lightMode: .lightGray , darkMode: .black)
         return imageView
     }()
     
@@ -42,8 +48,9 @@ class PostTableViewCell: UITableViewCell {
     private lazy var likeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .black
+        label.textColor = .gray
         return label
     }()
     
@@ -51,7 +58,7 @@ class PostTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .black
+        label.textColor = .gray
         return label
     }()
     
@@ -64,6 +71,10 @@ class PostTableViewCell: UITableViewCell {
         
         contentView.addSubviews([titleTextLabel,postImage, descriptionLabel, likeLabel, viewsLabel])
         separate()
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(addToFavourite))
+        gesture.numberOfTapsRequired = 2
+        contentView.addGestureRecognizer(gesture)
+        contentView.isUserInteractionEnabled = true
     }
     
     override func layoutSubviews() {
@@ -93,6 +104,7 @@ class PostTableViewCell: UITableViewCell {
             likeLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor,constant: Constans.padding),
             likeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: Constans.padding),
             likeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -Constans.padding),
+            likeLabel.trailingAnchor.constraint(equalTo: viewsLabel.leadingAnchor, constant: -Constans.padding),
 
             viewsLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: Constans.padding),
             viewsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constans.padding),
@@ -110,12 +122,15 @@ class PostTableViewCell: UITableViewCell {
         descriptionLabel.text = nil
     }
     
-    func configure(_ post: Post) {
-        titleTextLabel.text = post.title
-        postImage.image = UIImage(named: post.image)
-        likeLabel.text = "Likes: \(String(post.likes))"
-        viewsLabel.text = "Views: \(String(post.views))"
-        descriptionLabel.text = String(post.description)
+    func configure(_ incomingPost: Post) {
+        self.post = incomingPost
+        titleTextLabel.text = incomingPost.title
+        postImage.image = UIImage(named: incomingPost.image)
+        let loc = "any_like".localize()
+        let formatted = String.localizedStringWithFormat(loc, incomingPost.likes)
+        likeLabel.text = "\(formatted)"
+        viewsLabel.text = "Views: \(String(incomingPost.views))"
+        descriptionLabel.text = String(incomingPost.description)
         layoutSubviews()
     }
     
@@ -145,4 +160,15 @@ class PostTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate(allConstraints)
     }
     
+    @objc func addToFavourite(){
+        guard let post = post, let  delegate = delegate else{return}
+        
+        delegate.addToFavourite(post)
+        UIWindow.animate(withDuration: 0.1, animations: {
+            self.contentView.alpha = 0.5
+        }) { _ in
+            self.contentView.alpha = 1
+        }
+                         
+    }
 }

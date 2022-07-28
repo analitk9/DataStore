@@ -12,32 +12,35 @@ protocol LoginViewCheckerDelegate: AnyObject {
 }
 
 class LoginViewModel {
-    private(set) var state: LoginState = .initial {
+    private(set) var state: LoginViewModelState = .initial {
         didSet {
             onStateChanged?(state) // сюда модель сообщает о изменении своего состояния
         }
     }
-    var checkerDelegate: LoginViewCheckerDelegate
-    var onStateChanged: ((LoginState) -> Void)?
-    var toProfileVC: ((String)->Void)
+    let checkerDelegate: LoginViewCheckerDelegate
+    var onStateChanged: ((LoginViewModelState) -> Void)?
+    var toProfileVC: ((String, Bool)->Void)
+    let localAuthService: LocalAuthorizationServiceProtocol
+    var isSwitchTabBar = false
     
-    init(loginChecker: LoginViewCheckerDelegate,toProfileVC: @escaping ((String)->Void)){
+    init(loginChecker: LoginViewCheckerDelegate, localAuthService: LocalAuthorizationServiceProtocol, toProfileVC: @escaping ((String, Bool)->Void)){
         self.toProfileVC = toProfileVC
-        checkerDelegate = loginChecker
-        
+        self.checkerDelegate = loginChecker
+        self.localAuthService = localAuthService
+ 
     }
     
     private func handlingResult(_ result: Result<String, LoginError>){
         switch result {
         case let .success(login):
-            self.toProfileVC(login)
+            self.toProfileVC(login, isSwitchTabBar)
         case let .failure(error):
             self.state = .error(.fbError(error.errorDescription))
             
         }
     }
     
-    func send(_ action: LoginAction){
+    func send(_ action: LoginViewControllerAction){
         switch action {
             
         case .bruteForceButtonPress:
@@ -57,7 +60,16 @@ class LoginViewModel {
             checkerDelegate.autoLogin{ result in
                 self.handlingResult(result)
             }
-       }
+        case .bioAuthButtonPress:
+            localAuthService.AuthenticationWithBiometrics { result in
+                self.handlingResult(result)
+            }
+        case .ready:
+            localAuthService.authorizeIfPossible { possible in
+                self.state = .isBioPossible(possible)
+            }
+            state = .setBioImage(localAuthService.BiometryType()) 
+        }
     }
     
     private func bruteForcePress (){
@@ -74,23 +86,38 @@ class LoginViewModel {
     
 }
 
+extension LoginViewModel: LocalNotificationsServiceDelegate {
+    func notificationPressAccept() {
+        checkerDelegate.autoLogin{ result in
+            self.isSwitchTabBar = true
+            self.handlingResult(result)
+        }
+    }
+    
+}
+
 extension LoginViewModel{
     
-    enum LoginAction { //  состояния вью
+    enum LoginViewControllerAction { //  состояния вью
         case loginButtonPress(String?, String?)
         case bruteForceButtonPress
         case createUserButtonPress(String?, String?)
         case autoLogin
+        case bioAuthButtonPress
+        case ready
     }
     
-    enum LoginState { // состояния модели
+    enum LoginViewModelState { // состояния модели
         
         case initial
         case login
         case logout
         case passwordBruteForce(String)
-        
         case error(LoginError)
+        case loginWithBio
+        case loginBioIfPossible(Bool)
+        case isBioPossible(Bool)
+        case setBioImage(AuthType)
         
     }
 }

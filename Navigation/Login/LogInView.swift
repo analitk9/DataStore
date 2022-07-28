@@ -46,7 +46,7 @@ class LogInView: UIView {
     }()
     
     let logInButton: CustomButton = {
-        let but = CustomButton(frame: .zero, title: "Log in", tintColor: .white)
+        let but = CustomButton(frame: .zero, title: "Log in".localize(), tintColor: UIColor.createColor(lightMode: .white, darkMode: .black))
         but.translatesAutoresizingMaskIntoConstraints = false
         let pixelImage = UIImage(named: "bluePixel")
         but.setBackgroundImage(pixelImage?.withAlpha(1.0), for: .normal)
@@ -58,8 +58,22 @@ class LogInView: UIView {
         return but
     }()
     
+    let bioAuthButton: CustomButton = {
+      let but = CustomButton(frame: .zero, title: "", tintColor: UIColor.createColor(lightMode: .white, darkMode: .black))
+        but.translatesAutoresizingMaskIntoConstraints = false
+      //  but.isHidden = true
+        let pixelImage = UIImage(named: "bluePixel")
+        but.setBackgroundImage(pixelImage?.withAlpha(1.0), for: .normal)
+        but.setBackgroundImage(pixelImage?.withAlpha(0.8), for: .highlighted)
+        but.setBackgroundImage(pixelImage?.withAlpha(0.8), for: .selected)
+        but.setBackgroundImage(pixelImage?.withAlpha(0.8), for: .disabled)
+        but.clipsToBounds = true
+        but.layer.cornerRadius = 10
+       return but
+    }()
+    
     let createUserButton: CustomButton = {
-        let but = CustomButton(frame: .zero, title: "Create user", tintColor: UIColor.black)
+        let but = CustomButton(frame: .zero, title: "Create user".localize(), tintColor:  UIColor.createColor(lightMode: .black, darkMode: .white) )
         but.translatesAutoresizingMaskIntoConstraints = false
         return but
     }()
@@ -68,7 +82,7 @@ class LogInView: UIView {
     
     let bruteForceButton: CustomButton = {
         
-        let but = CustomButton(frame: .zero, title: "Bruteforce", tintColor: .white)
+        let but = CustomButton(frame: .zero, title: "Bruteforce".localize(), tintColor: UIColor.createColor(lightMode: .white, darkMode: .black))
         but.translatesAutoresizingMaskIntoConstraints = false
         let pixelImage = UIImage(named: "bluePixel")
         but.setBackgroundImage(pixelImage?.withAlpha(1.0), for: .normal)
@@ -86,7 +100,7 @@ class LogInView: UIView {
         login.translatesAutoresizingMaskIntoConstraints = false
         login.layer.borderColor = UIColor.lightGray.cgColor
         login.layer.borderWidth = 0.5
-        login.placeholder = "Email or phone"
+        login.placeholder = "Email or phone".localize()
         login.textColor = .black
         login.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         login.tintColor =  .lightGray
@@ -104,7 +118,7 @@ class LogInView: UIView {
         pass.translatesAutoresizingMaskIntoConstraints = false
         pass.layer.borderColor = UIColor.lightGray.cgColor
         pass.layer.borderWidth = 0.5
-        pass.placeholder = "Password"
+        pass.placeholder = "Password".localize()
         pass.textColor = .black
         pass.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         pass.tintColor =  .lightGray
@@ -120,14 +134,14 @@ class LogInView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .white
+        backgroundColor = .createColor(lightMode: .white, darkMode: .black)
         passWordStack.addArrangedSubview(passwordText)
         passWordStack.addArrangedSubview(spinnerView)
         stack.addArrangedSubview(loginText)
         stack.addArrangedSubview(passWordStack)
         spinnerView.hidesWhenStopped = true
        
-        addSubviews([stack, logoView, logInButton, bruteForceButton, createUserButton])
+        addSubviews([stack, logoView, logInButton, bruteForceButton, createUserButton, bioAuthButton])
 
     }
     
@@ -164,6 +178,10 @@ class LogInView: UIView {
             bruteForceButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: Constans.padding),
             bruteForceButton.trailingAnchor.constraint(equalTo: logInButton.trailingAnchor),
             bruteForceButton.heightAnchor.constraint(equalToConstant: Constans.imageHeight / 2),
+            bioAuthButton.leadingAnchor.constraint(equalTo: stack.leadingAnchor),
+            bioAuthButton.trailingAnchor.constraint(equalTo: stack.trailingAnchor),
+            bioAuthButton.topAnchor.constraint(equalTo: bruteForceButton.bottomAnchor, constant: Constans.padding),
+            bioAuthButton.heightAnchor.constraint(equalToConstant: Constans.imageHeight / 2),
         ])
     }
 }

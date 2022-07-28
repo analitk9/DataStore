@@ -1,0 +1,37 @@
+
+"location" = "location";
+"Delete all pins" = "Delete all pins";
+"Add Route" = "Add Route";
+"Alert" = "Alert";
+"Info" = "Info";
+"select action" = "select action";
+"First message" = "First message";
+"Second messaege" = "Second messaege";
+"exit info VC" = "exit info VC";
+"Media" = "Media";
+"Tap to Record" = "Tap to Record";
+"Play" = "Play";
+"Tap to Stop" = "Tap to Stop";
+"Tap to Re-record" = "Tap to Re-record";
+"Feed" = "Feed";
+"enter word" = "enter word";
+"Press" = "Press";
+"Button 1" = "Button 1";
+"Button 2" = "Button 2";
+"Photo Gallery" = "Photo Gallery";
+"Favourites" = "Favourites";
+"Profile" = "Profile";
+"Wrong password or login" = "Wrong password or login";
+"Log in" = "Log in";
+"Log in with FaceID/TouchID" = "Log in with FaceID/TouchID";
+"Create user" = "Create user";
+"Bruteforce" = "Bruteforce";
+"Email or phone" = "Email or phone";
+"Password" = "Password";
+"Show status" = "Show status";
+"Waiting for something..." = "Waiting for something...";
+"News" = "News";
+"New news has arrived!" = "New news has arrived!";
+"Stop timer" = "Stop timer";
+"Photos" = "Photos";
+

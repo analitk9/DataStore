@@ -38,15 +38,15 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        scrollView.backgroundColor = .createColor(lightMode: .white, darkMode: .black)
         navigationController?.navigationBar.isHidden = true
         
         view.addSubview(scrollView)
         scrollView.addSubview(loginView)
-        
         loginView.logInButton.onTap = loginButtonPress
         loginView.bruteForceButton.onTap = bruteForcePress
         loginView.createUserButton.onTap = createUserPress
+        loginView.bioAuthButton.onTap = loginBioButtonPress
         loginView.loginText.delegate = self
         loginView.passwordText.delegate = self
         
@@ -65,12 +65,13 @@ class LogInViewController: UIViewController {
         }
         
         setupViewModel()
-        loginViewModel.send(.autoLogin)
+        loginViewModel.send(.ready)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         configureLayout()
@@ -93,7 +94,7 @@ class LogInViewController: UIViewController {
     }
     
     func configureTabBarItem() {
-        tabBarItem.title = "Profile"
+        tabBarItem.title = "Profile".localize()
         tabBarItem.image = UIImage(systemName: "person")
         tabBarItem.selectedImage = UIImage(systemName: "person.fill")
         tabBarItem.tag = 20
@@ -114,20 +115,22 @@ class LogInViewController: UIViewController {
                 self.loginView.spinnerView.stopAnimating()
                 self.loginView.passwordText.isSecureTextEntry = false
                 self.loginView.passwordText.text = pass
+            case let .isBioPossible(possible):
+                self.loginView.bioAuthButton.isHidden = !possible
+            case let .setBioImage(image):
+                self.loginView.bioAuthButton.setImage(UIImage(systemName: image.rawValue), for: .normal)
             default:
                 print("initial")
             }
         }
+        print("Засетапили модель")
     }
-    
-    
-    
+
      func loginButtonPress() {
           let loginText = loginView.loginText.text
           let passwordText = loginView.passwordText.text
          loginViewModel.send(.loginButtonPress(loginText, passwordText))
      }
-    
     
     func bruteForcePress (){
         loginView.spinnerView.startAnimating()
@@ -140,9 +143,12 @@ class LogInViewController: UIViewController {
         loginViewModel.send(.createUserButtonPress(loginText, passwordText))
     }
     
+    func loginBioButtonPress(){
+        loginViewModel.send(.bioAuthButtonPress)
+    }
     
     func showWrongLoginPasswordAlert() {
-        let alertVC = UIAlertController(title: "Внимание", message: "Не верно указан логи или пароль", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "Alert".localize(), message: "Wrong password or login".localize(), preferredStyle: .alert)
         let button1 = UIAlertAction(title: "ОК", style: .default)
    
         alertVC.addAction(button1)

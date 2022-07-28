@@ -31,14 +31,14 @@ class RecViewController: UIViewController, AVAudioRecorderDelegate {
     
     func loadRecordingUI() {
         recordButton = UIButton(frame: .zero)
-        recordButton.setTitle("Tap to Record", for: .normal)
+        recordButton.setTitle("Tap to Record".localize(), for: .normal)
         recordButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
         recordButton.addTarget(self, action: #selector(recordTapped), for: .touchUpInside)
         recordButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(recordButton)
         
         playButton = UIButton(frame: .zero)
-        playButton.setTitle("Play", for: .normal)
+        playButton.setTitle("Play".localize(), for: .normal)
         playButton.addTarget(self, action: #selector(playTapped), for: .touchUpInside)
         playButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(playButton)
@@ -78,7 +78,7 @@ class RecViewController: UIViewController, AVAudioRecorderDelegate {
             audioRecorder.delegate = self
             audioRecorder.record()
 
-            recordButton.setTitle("Tap to Stop", for: .normal)
+            recordButton.setTitle("Tap to Stop".localize(), for: .normal)
         } catch {
             finishRecording(success: false)
         }
@@ -94,9 +94,9 @@ class RecViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder = nil
 
         if success {
-            recordButton.setTitle("Tap to Re-record", for: .normal)
+            recordButton.setTitle("Tap to Re-record".localize(), for: .normal)
         } else {
-            recordButton.setTitle("Tap to Record", for: .normal)
+            recordButton.setTitle("Tap to Record".localize(), for: .normal)
             // recording failed :(
         }
     }

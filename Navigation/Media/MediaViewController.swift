@@ -58,7 +58,7 @@ class MediaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .createColor(lightMode: .white, darkMode: .black)
         view.addSubview(audioView)
         view.addSubview(tableView)
         view.addSubview(recButton)
@@ -95,7 +95,7 @@ class MediaViewController: UIViewController {
     
 
     func configureTabBarItem() {
-        tabBarItem.title = "Media"
+        tabBarItem.title = "Media".localize()
         tabBarItem.image = UIImage(systemName: "music.note.tv")
         tabBarItem.selectedImage = UIImage(systemName: "music.note.tv.fill")
         tabBarItem.tag = 30

@@ -10,15 +10,19 @@ import UIKit
 class StatusTextField: UITextField {
     private enum Constants{
         static let cornerRadius: CGFloat = 12
-        static let indent: CGFloat = 10
+        static let indent: CGFloat = 5
         static let borderWidth: CGFloat = 1
         static let fontSize: CGFloat = 15
     }
     func configure(with placeholder: String = "") {
         let currentFont = UIFont.systemFont(ofSize: Constants.fontSize, weight: .regular)
         font = currentFont
-        textColor = .black
-        backgroundColor = .white
+        textColor = .darkText
+        backgroundColor = .createColor(lightMode: .white, darkMode: .gray)
+        attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.createColor(lightMode: .lightGray, darkMode: .white)]
+        )
         self.placeholder = placeholder
         self.indent(size: Constants.indent)
         leftViewMode = .always
