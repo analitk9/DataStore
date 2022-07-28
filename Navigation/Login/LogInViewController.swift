@@ -116,7 +116,6 @@ class LogInViewController: UIViewController {
                 self.loginView.passwordText.isSecureTextEntry = false
                 self.loginView.passwordText.text = pass
             case let .isBioPossible(possible):
-                print("среагировали на isBioPossible")
                 self.loginView.bioAuthButton.isHidden = !possible
             case let .setBioImage(image):
                 self.loginView.bioAuthButton.setImage(UIImage(systemName: image.rawValue), for: .normal)
