@@ -17,22 +17,23 @@ class LoginViewModel {
             onStateChanged?(state) // сюда модель сообщает о изменении своего состояния
         }
     }
-    var checkerDelegate: LoginViewCheckerDelegate
+    let checkerDelegate: LoginViewCheckerDelegate
     var onStateChanged: ((LoginViewModelState) -> Void)?
-    var toProfileVC: ((String)->Void)
+    var toProfileVC: ((String, Bool)->Void)
     let localAuthService: LocalAuthorizationServiceProtocol
+    var isSwitchTabBar = false
     
-    init(loginChecker: LoginViewCheckerDelegate, localAuthService: LocalAuthorizationServiceProtocol, toProfileVC: @escaping ((String)->Void)){
+    init(loginChecker: LoginViewCheckerDelegate, localAuthService: LocalAuthorizationServiceProtocol, toProfileVC: @escaping ((String, Bool)->Void)){
         self.toProfileVC = toProfileVC
         self.checkerDelegate = loginChecker
         self.localAuthService = localAuthService
-        
+ 
     }
     
     private func handlingResult(_ result: Result<String, LoginError>){
         switch result {
         case let .success(login):
-            self.toProfileVC(login)
+            self.toProfileVC(login, isSwitchTabBar)
         case let .failure(error):
             self.state = .error(.fbError(error.errorDescription))
             
@@ -85,6 +86,15 @@ class LoginViewModel {
     
 }
 
+extension LoginViewModel: LocalNotificationsServiceDelegate {
+    func notificationPressAccept() {
+        checkerDelegate.autoLogin{ result in
+            self.isSwitchTabBar = true
+            self.handlingResult(result)
+        }
+    }
+    
+}
 
 extension LoginViewModel{
     

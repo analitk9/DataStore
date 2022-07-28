@@ -134,7 +134,7 @@ class LoginInspector: LoginViewCheckerDelegate {
         let realm = try! Realm()
         let user = realm.objects(RealmAuthModel.self)
         if user.count != 0 {
-            completion(.success(user.first!.login))
+            completion(.success(user.last!.login))
         }else {
             completion(.failure(.wrongAutoLogin))
         }
