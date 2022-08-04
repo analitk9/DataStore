@@ -113,6 +113,17 @@ class ProfileViewModel {
             }
         }
     }
+    func writeImage( name: String, _ image: UIImage){
+        
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if let dirPath          = paths.first{
+              
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(name)
+            try!  image.pngData()?.write(to: imageURL)
+            }
+          }
     
 }
 
