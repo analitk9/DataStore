@@ -79,7 +79,7 @@ class CoreDataService {
                     let newPost = Post(title: title,
                                        author: author,
                                        description: description,
-                                       image: image,
+                                       imageString: image,
                                        likes: Int(post.likes),
                                        views: Int(post.views))
                     resultPost.append(newPost)
@@ -105,7 +105,7 @@ class CoreDataService {
                 newFavourite.likes = Int16(post.likes)
                 newFavourite.author = post.author
                 newFavourite.descriptionPost = post.description
-                newFavourite.image = post.image
+                newFavourite.image = post.imageString
                 newFavourite.title = post.title
                 try managedObjectContext.save()
             } else {

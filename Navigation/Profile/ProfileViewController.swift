@@ -7,6 +7,7 @@
 
 import UIKit
 import iOSIntPackage
+import UniformTypeIdentifiers
 
 class ProfileViewController: UIViewController {
     
@@ -25,6 +26,7 @@ class ProfileViewController: UIViewController {
     let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.dragInteractionEnabled = true
         return table
     }()
     
@@ -35,8 +37,9 @@ class ProfileViewController: UIViewController {
         self.profileViewModel = model
         self.userService = userService
         self.name = name
-        
         super.init(nibName: nil, bundle: nil)
+        tableView.dragDelegate = self
+        tableView.dropDelegate = self
         configureTabBarItem()
     }
     
@@ -183,7 +186,7 @@ extension ProfileViewController: UITableViewDataSource {
             let post = profileViewModel.postModel[indexPath.row]
             cell.configure(post)
             
-            guard let image = UIImage(named: post.image) else {fatalError()}
+            guard let image = UIImage(named: post.imageString) else {fatalError()}
             profileViewModel.send(.setupImageFilter(image, indexPath))
             return cell
         default:
@@ -241,5 +244,82 @@ extension ProfileViewController: tapAvatarViewProtocol {
     }
 }
 
+extension ProfileViewController: UITableViewDragDelegate {
+    
+    // метод создающий объекты при начале drag
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        session.localContext = indexPath
+       return  dragItems(at: indexPath)
+    }
+    
+    private func dragItems(at indexPath: IndexPath)-> [UIDragItem] {
+        let post = profileViewModel.postModel[indexPath.row]
+        let imageDragItem = UIDragItem(itemProvider: NSItemProvider(object: post.image))
+        let descriptionDragItem = UIDragItem(itemProvider: NSItemProvider(object: NSString(string: post.description)))
+        return [imageDragItem,descriptionDragItem]
+    }
+    
+}
 
+extension ProfileViewController: UITableViewDropDelegate {
+    
+   ///  метод непосредстенного дропа
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+      
+        let destinationIndex = coordinator.destinationIndexPath ?? IndexPath(row: profileViewModel.postModel.count , section: 1)
+        guard let selfDropItem = coordinator.items.first else {return}
+        
+        if let sourceIndex = selfDropItem.sourceIndexPath {
+            // локальный дроп
+            tableView.performBatchUpdates {
+                let dragNews = profileViewModel.postModel.remove(at: sourceIndex.row)
+                profileViewModel.postModel.insert(dragNews, at: destinationIndex.row)
+                tableView.deleteRows(at: [sourceIndex], with: .automatic)
+                tableView.insertRows(at: [destinationIndex], with: .automatic)
+            }
+            coordinator.drop(selfDropItem.dragItem, toRowAt: destinationIndex)
+        }else{
+            // дроп из вне
+            var providerImage: UIImage?
+            var providerDesc: NSString?
+            var imageString: String?
+            coordinator.items.forEach { item in
+                item.dragItem.itemProvider.loadObject(ofClass: UIImage.self) { provider, error in
+                    if let newImage = provider as? UIImage {
+                        providerImage = newImage
+                        imageString = UUID().uuidString
+                    }
+                    if let newDesc = provider as? NSString {
+                        providerDesc = newDesc
+                    }
+                }
+            }
+            guard let providerDesc = providerDesc,
+                  let providerImage = providerImage,
+                  let imageString = imageString else { return }
 
+            profileViewModel.writeImage(name: imageString, providerImage)
+            let newPost = Post(title: "Drag and Drop NEWS", author: "Drag and Drop", description: String(providerDesc), imageString: imageString, likes: 0, views: 0)
+            self.profileViewModel.postModel.append(newPost)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    /// метод проверяет входящие при drop объекты и дает разрещение на drop
+    func tableView(_ tableView: UITableView, canHandle session: UIDropSession) -> Bool {
+        session.hasItemsConforming(toTypeIdentifiers: [UTType.text.identifier, UTType.image.identifier])
+    }
+    
+    /// метод  показывает какие операции при drop будут выполнены (копирование, перемещение, отмена, запрет)
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        let isSelf = tableView.hasActiveDrag
+        let dropProposal = UITableViewDropProposal(operation: isSelf ? .move :.copy, intent: .insertAtDestinationIndexPath)
+        
+        return dropProposal
+    }
+    
+    
+    
+}
