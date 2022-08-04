@@ -125,7 +125,8 @@ class PostTableViewCell: UITableViewCell {
     func configure(_ incomingPost: Post) {
         self.post = incomingPost
         titleTextLabel.text = incomingPost.title
-        postImage.image = UIImage(named: incomingPost.image)
+ //       postImage.image = UIImage(named: incomingPost.imageString)
+        postImage.image = incomingPost.image
         let loc = "any_like".localize()
         let formatted = String.localizedStringWithFormat(loc, incomingPost.likes)
         likeLabel.text = "\(formatted)"
