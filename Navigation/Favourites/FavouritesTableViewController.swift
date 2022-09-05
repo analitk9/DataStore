@@ -21,7 +21,6 @@ class FavouritesViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-       // configureTabBarItem()
    }
     
     required init?(coder: NSCoder) {
@@ -43,13 +42,6 @@ class FavouritesViewController: UIViewController {
         tableView.reloadData()
     }
     
-    
-    func configureTabBarItem() {
-        tabBarItem.title = "Favourites".localize()
-        tabBarItem.image = UIImage(systemName: "bookmark")
-        tabBarItem.selectedImage = UIImage(systemName: "bookmark.fill")
-        tabBarItem.tag = 40
-    }
 
     func configureLayout(){
         [

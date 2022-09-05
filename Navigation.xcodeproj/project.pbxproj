@@ -246,6 +246,19 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		644559D928C6292900980ACE /* unused */ = {
+			isa = PBXGroup;
+			children = (
+				64D2C6F6279EBE6C00DED7E5 /* Coordinators */,
+				64752270271C224300014ECF /* PostViewController.swift */,
+				64D2C6FE279EC5B300DED7E5 /* FeedViewCoordinator.swift */,
+				64D2C76C279EEE2E00DED7E5 /* InfoCoordinator.swift */,
+				64D2C77227A2A4C800DED7E5 /* Feed */,
+				645CA8582811457E005F88BC /* Info */,
+			);
+			path = unused;
+			sourceTree = "<group>";
+		};
 		645CA8582811457E005F88BC /* Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +285,8 @@
 		6475224B271C1EAD00014ECF = {
 			isa = PBXGroup;
 			children = (
+				64752265271C1EAF00014ECF /* Info.plist */,
+				645CA8682817E083005F88BC /* GoogleService-Info.plist */,
 				649E61AA28730703007723B7 /* InfoPlist.strings */,
 				649E619F286F1144007723B7 /* Localizable.strings */,
 				649E61B2287327C9007723B7 /* Localizable.stringsdict */,
@@ -292,25 +307,18 @@
 		64752256271C1EAD00014ECF /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				644559D428C5F89700980ACE /* TabBar */,
-				64D748FE277865D4009B7677 /* Services */,
-				6443DF0C277B2FBC0069A40F /* Factory */,
-				64D2C6F6279EBE6C00DED7E5 /* Coordinators */,
-				649EB42B2865DF1A0074F7DB /* Location&Map */,
-				645CA8582811457E005F88BC /* Info */,
-				640E156327BE719D004EEE4D /* Media */,
-				64D2C77227A2A4C800DED7E5 /* Feed */,
-				641982572742E09A008C9A41 /* CollectionPhotos */,
-				64752265271C1EAF00014ECF /* Info.plist */,
-				645CA8682817E083005F88BC /* GoogleService-Info.plist */,
 				64C1586D272574E00078860D /* extention */,
+				644559D928C6292900980ACE /* unused */,
+				644559D428C5F89700980ACE /* TabBar */,
+				6443DF0C277B2FBC0069A40F /* Factory */,
+				649EB42B2865DF1A0074F7DB /* Location&Map */,
+				640E156327BE719D004EEE4D /* Media */,
+				641982572742E09A008C9A41 /* CollectionPhotos */,
 				649EB3BC28323BFF0074F7DB /* Favourites */,
 				64FE1D252733F29E00D2D985 /* Login */,
 				645F74ED2720112C00949BC3 /* Profile */,
 				64752276271C419600014ECF /* Model */,
 				6475226B271C214F00014ECF /* System */,
-				64752270271C224300014ECF /* PostViewController.swift */,
-				64D2C6EF2798135100DED7E5 /* CustomButton.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -365,6 +373,7 @@
 		64C1586D272574E00078860D /* extention */ = {
 			isa = PBXGroup;
 			children = (
+				64D748FE277865D4009B7677 /* Services */,
 				649D271427329240006F15EB /* Extention.swift */,
 			);
 			path = extention;
@@ -388,8 +397,6 @@
 				64D2C6FA279EBFC200DED7E5 /* ApplicationCoordinator.swift */,
 				64D2C6FC279EBFF500DED7E5 /* BaseCoordinator.swift */,
 				64D2C700279EC5C800DED7E5 /* LoginViewCoordinator.swift */,
-				64D2C6FE279EC5B300DED7E5 /* FeedViewCoordinator.swift */,
-				64D2C76C279EEE2E00DED7E5 /* InfoCoordinator.swift */,
 				64D2C766279ED23000DED7E5 /* PostViewCoordinator.swift */,
 				64D2C768279ED24400DED7E5 /* ProfileViewCoordinator.swift */,
 				64D2C76A279ED28000DED7E5 /* PhotoViewCoordinator.swift */,
@@ -437,6 +444,7 @@
 		64FE1D252733F29E00D2D985 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				64D2C6EF2798135100DED7E5 /* CustomButton.swift */,
 				649D270E2732804A006F15EB /* LogInViewController.swift */,
 				649D271027328854006F15EB /* LogInView.swift */,
 				64FF983027B3DB5500EE2352 /* LoginError.swift */,

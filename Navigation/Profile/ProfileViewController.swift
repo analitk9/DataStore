@@ -40,7 +40,6 @@ class ProfileViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         tableView.dragDelegate = self
         tableView.dropDelegate = self
-        configureTabBarItem()
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -80,13 +79,6 @@ class ProfileViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
         ].forEach { $0.isActive = true }
-    }
-    
-    func configureTabBarItem() {
-        tabBarItem.title = "Profile".localize()
-        tabBarItem.image = UIImage(systemName: "person")
-        tabBarItem.selectedImage = UIImage(systemName: "person.fill")
-        tabBarItem.tag = 20
     }
     
     private func setupViewModel() {
