@@ -21,7 +21,7 @@ class FavouritesViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        configureTabBarItem()
+       // configureTabBarItem()
    }
     
     required init?(coder: NSCoder) {

@@ -22,6 +22,8 @@
 		6443DF09277B29950069A40F /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6443DF08277B29950069A40F /* Checker.swift */; };
 		6443DF0B277B2D110069A40F /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6443DF0A277B2D110069A40F /* LoginInspector.swift */; };
 		6443DF0E277B30F40069A40F /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6443DF0D277B30F40069A40F /* LoginFactory.swift */; };
+		644559D628C5F8BB00980ACE /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644559D528C5F8BB00980ACE /* TabBarModel.swift */; };
+		644559D828C5F8F100980ACE /* TabBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644559D728C5F8F100980ACE /* TabBarConfigurator.swift */; };
 		6451B24F2743EB12001F7CD7 /* DetailProfileAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451B24E2743EB12001F7CD7 /* DetailProfileAvatar.swift */; };
 		645CA857280C41DD005F88BC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645CA856280C41DD005F88BC /* NetworkService.swift */; };
 		645CA85A281154BD005F88BC /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645CA859281154BD005F88BC /* InfoViewModel.swift */; };
@@ -102,6 +104,8 @@
 		6443DF08277B29950069A40F /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		6443DF0A277B2D110069A40F /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		6443DF0D277B30F40069A40F /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
+		644559D528C5F8BB00980ACE /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
+		644559D728C5F8F100980ACE /* TabBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarConfigurator.swift; sourceTree = "<group>"; };
 		6451B24E2743EB12001F7CD7 /* DetailProfileAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProfileAvatar.swift; sourceTree = "<group>"; };
 		645CA856280C41DD005F88BC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		645CA859281154BD005F88BC /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
@@ -233,6 +237,15 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		644559D428C5F89700980ACE /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				644559D528C5F8BB00980ACE /* TabBarModel.swift */,
+				644559D728C5F8F100980ACE /* TabBarConfigurator.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		645CA8582811457E005F88BC /* Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +292,7 @@
 		64752256271C1EAD00014ECF /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				644559D428C5F89700980ACE /* TabBar */,
 				64D748FE277865D4009B7677 /* Services */,
 				6443DF0C277B2FBC0069A40F /* Factory */,
 				64D2C6F6279EBE6C00DED7E5 /* Coordinators */,
@@ -585,6 +599,7 @@
 				64FF983727BA82C000EE2352 /* PostError.swift in Sources */,
 				6451B24F2743EB12001F7CD7 /* DetailProfileAvatar.swift in Sources */,
 				64D7490027786907009B7677 /* TestUserService.swift in Sources */,
+				644559D628C5F8BB00980ACE /* TabBarModel.swift in Sources */,
 				6475226D271C221E00014ECF /* FeedViewController.swift in Sources */,
 				64D2C76B279ED28000DED7E5 /* PhotoViewCoordinator.swift in Sources */,
 				649D271527329240006F15EB /* Extention.swift in Sources */,
@@ -594,6 +609,7 @@
 				64D748FB277856D8009B7677 /* User.swift in Sources */,
 				649D270F2732804A006F15EB /* LogInViewController.swift in Sources */,
 				64D2C76F27A1457A00DED7E5 /* ViewControllerFactory.swift in Sources */,
+				644559D828C5F8F100980ACE /* TabBarConfigurator.swift in Sources */,
 				64D2C6FD279EBFF500DED7E5 /* BaseCoordinator.swift in Sources */,
 				649EB42D2865DF560074F7DB /* MapViewController.swift in Sources */,
 				6443DF0E277B30F40069A40F /* LoginFactory.swift in Sources */,

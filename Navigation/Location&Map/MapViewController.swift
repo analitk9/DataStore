@@ -23,7 +23,7 @@ final class MapViewController: UIViewController, MKMapViewDelegate {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        configureTabBarItem()
+       // configureTabBarItem()
    }
     
     required init?(coder: NSCoder) {
