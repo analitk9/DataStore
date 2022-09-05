@@ -130,9 +130,7 @@ class PhotosTableViewCell: UITableViewCell {
     }
     
     @objc func tapArrow(){
-        guard let tapHandler = tapHandler else {
-            return
-        }
-        tapHandler()  
+
+        tapHandler?()
     }
 }
