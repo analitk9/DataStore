@@ -11,7 +11,7 @@ import UIKit
 enum TabBarModel: CaseIterable {
     case main
     case favorite
-    case media
+//    case media
     case mapLocation
     
     
@@ -24,8 +24,8 @@ enum TabBarModel: CaseIterable {
             return "Favourites".localize()
         case .mapLocation:
             return "Location".localize()
-        case .media:
-            return "Media".localize()
+//        case .media:
+//            return "Media".localize()
         }
     }
     
@@ -35,8 +35,8 @@ enum TabBarModel: CaseIterable {
             return UIImage(systemName: "person")
         case .favorite:
             return UIImage(systemName: "bookmark")
-        case .media:
-            return UIImage(systemName: "music.note.tv")
+//        case .media:
+//            return UIImage(systemName: "music.note.tv")
         case .mapLocation:
             return UIImage(systemName: "globe.europe.africa")
         }
@@ -48,8 +48,8 @@ enum TabBarModel: CaseIterable {
             return UIImage(systemName: "person.fill")
         case .favorite:
             return UIImage(systemName: "bookmark.fill")
-        case .media:
-            return UIImage(systemName: "music.note.tv.fill")
+//        case .media:
+//            return UIImage(systemName: "music.note.tv.fill")
         case .mapLocation:
             return UIImage(systemName: "globe.europe.africa.fill")
         }

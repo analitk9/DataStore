@@ -29,7 +29,7 @@ final class ApplicationCoordinator: BaseCoordinator, Coordinator {
         let loginNavigationVC = UINavigationController()
 
         let loginCoordinator = LoginViewCoordinator(navigationController: loginNavigationVC, factory: viewControllerFactory, tabController: tabBarController)
-
+        loginNavigationVC.tabBarItem = tabBarController.viewControllers?[0].tabBarItem
         tabBarController.viewControllers?[0] = loginNavigationVC
         tabBarController.selectedViewController = tabBarController.viewControllers?.first
         addDependency(loginCoordinator)

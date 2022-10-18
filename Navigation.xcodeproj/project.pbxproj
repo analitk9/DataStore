@@ -249,7 +249,6 @@
 		644559D928C6292900980ACE /* unused */ = {
 			isa = PBXGroup;
 			children = (
-				64D2C6F6279EBE6C00DED7E5 /* Coordinators */,
 				64752270271C224300014ECF /* PostViewController.swift */,
 				64D2C6FE279EC5B300DED7E5 /* FeedViewCoordinator.swift */,
 				64D2C76C279EEE2E00DED7E5 /* InfoCoordinator.swift */,
@@ -285,8 +284,6 @@
 		6475224B271C1EAD00014ECF = {
 			isa = PBXGroup;
 			children = (
-				64752265271C1EAF00014ECF /* Info.plist */,
-				645CA8682817E083005F88BC /* GoogleService-Info.plist */,
 				649E61AA28730703007723B7 /* InfoPlist.strings */,
 				649E619F286F1144007723B7 /* Localizable.strings */,
 				649E61B2287327C9007723B7 /* Localizable.stringsdict */,
@@ -307,6 +304,10 @@
 		64752256271C1EAD00014ECF /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				64D2C6F6279EBE6C00DED7E5 /* Coordinators */,
+				645CA8682817E083005F88BC /* GoogleService-Info.plist */,
+				64752265271C1EAF00014ECF /* Info.plist */,
+				64D748FE277865D4009B7677 /* Services */,
 				64C1586D272574E00078860D /* extention */,
 				644559D928C6292900980ACE /* unused */,
 				644559D428C5F89700980ACE /* TabBar */,
@@ -373,7 +374,6 @@
 		64C1586D272574E00078860D /* extention */ = {
 			isa = PBXGroup;
 			children = (
-				64D748FE277865D4009B7677 /* Services */,
 				649D271427329240006F15EB /* Extention.swift */,
 			);
 			path = extention;

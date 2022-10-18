@@ -22,10 +22,10 @@ extension TabBarConfigurator {
     
     private func getTabBarController()-> UITabBarController {
         let tabBarController = UITabBarController()
-        tabBarController.tabBar.tintColor = .black
         tabBarController.tabBar.unselectedItemTintColor = .lightGray
         tabBarController.tabBar.backgroundColor = .white
         tabBarController.viewControllers = getViewControllers()
+        UITabBar.appearance().tintColor =  .systemBlue
         return tabBarController
     }
     
@@ -37,6 +37,7 @@ extension TabBarConfigurator {
             let controller = getCurrentViewController(tab: tab)
             let navigationController = UINavigationController(rootViewController: controller)
             let tabBarItem = UITabBarItem(title: tab.title, image: tab.image, selectedImage: tab.selectedImage)
+            
             controller.tabBarItem = tabBarItem
             viewControllers.append(navigationController)
         }
@@ -51,8 +52,8 @@ extension TabBarConfigurator {
             return UIViewController() // заглушка
         case .favorite:
             return FavouritesViewController()
-        case .media:
-            return MediaViewController()
+//        case .media:
+//            return MediaViewController()
         case .mapLocation:
             return MapViewController()
         }
