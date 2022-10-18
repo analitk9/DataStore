@@ -10,7 +10,10 @@ import UIKit
 
 final class ApplicationCoordinator: BaseCoordinator, Coordinator {
     
-    private let tabBarController = UITabBarController()
+    private let tabBarController: UITabBarController = {
+        let tabBar = TabBarConfigurator().configure()
+        return tabBar
+    }()
     private var window: UIWindow?
     private let scene: UIWindowScene
     private let viewControllerFactory: ViewControllerFactoryProtocol
@@ -22,23 +25,14 @@ final class ApplicationCoordinator: BaseCoordinator, Coordinator {
     
     func start() {
         initWindow()
-        
-        let feedNavigationVC = UINavigationController()
+
         let loginNavigationVC = UINavigationController()
-       
-        let mediaVC = MediaViewController()
-        let mapLocationNavigationVC = UINavigationController(rootViewController: MapViewController())
-        let favouritesNavigationVC = UINavigationController(rootViewController:  FavouritesViewController())
-        
-        let feedCoordinator = FeedViewCoordinator(navigationController: feedNavigationVC,factory: viewControllerFactory)
+
         let loginCoordinator = LoginViewCoordinator(navigationController: loginNavigationVC, factory: viewControllerFactory, tabController: tabBarController)
-        
-        tabBarController.setViewControllers([feedNavigationVC,loginNavigationVC,mediaVC,favouritesNavigationVC,mapLocationNavigationVC], animated: true)
+        loginNavigationVC.tabBarItem = tabBarController.viewControllers?[0].tabBarItem
+        tabBarController.viewControllers?[0] = loginNavigationVC
         tabBarController.selectedViewController = tabBarController.viewControllers?.first
-        addDependency(feedCoordinator)
         addDependency(loginCoordinator)
-        
-        feedCoordinator.start()
         loginCoordinator.start()
     }
     

@@ -28,8 +28,6 @@ class LogInViewController: UIViewController {
     init(model: LoginViewModel) {
         loginViewModel = model
         super.init(nibName: nil, bundle: nil)
-        
-        configureTabBarItem()
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -93,12 +91,6 @@ class LogInViewController: UIViewController {
         ].forEach { $0.isActive = true }
     }
     
-    func configureTabBarItem() {
-        tabBarItem.title = "Profile".localize()
-        tabBarItem.image = UIImage(systemName: "person")
-        tabBarItem.selectedImage = UIImage(systemName: "person.fill")
-        tabBarItem.tag = 20
-    }
     
     private func setupViewModel(){
         loginViewModel.onStateChanged = { [weak self] state in

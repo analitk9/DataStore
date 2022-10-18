@@ -23,7 +23,6 @@ final class MapViewController: UIViewController, MKMapViewDelegate {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        configureTabBarItem()
    }
     
     required init?(coder: NSCoder) {
@@ -40,14 +39,6 @@ final class MapViewController: UIViewController, MKMapViewDelegate {
         checkUserLocationPermissions()
        
         
-    }
-    
-   private func configureTabBarItem() {
-       tabBarItem.title = "location".localize()
-        tabBarItem.image = UIImage(systemName: "globe.europe.africa")
-        tabBarItem.selectedImage = UIImage(systemName: "globe.europe.africa.fill")
-        tabBarItem.tag = 50
-       
     }
     
   private  func configureNavigationBar(){

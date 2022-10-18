@@ -34,7 +34,7 @@ class PhotosViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        let stDate = Date.now
+//        let stDate = Date.now
         let qos = QualityOfService.allCases.randomElement()!
         imagePublisher.processImagesOnThread(sourceImages: photoPreModel, filter: ColorFilter.allCases.randomElement()!, qos: qos) { filteredImage in
             for image in filteredImage {
@@ -44,9 +44,9 @@ class PhotosViewController: UIViewController {
                     self.collectionView.reloadData()
                 }
             }
-            let fnDate = Date.now
-            let distance = round(stDate.distance(to: fnDate) * 10 / 10.0)
-            print("Start \(stDate.ISO8601Format()) | finish \(fnDate.ISO8601Format()) with \(qos.rawValue) distance \(distance)")
+//            let fnDate = Date.now
+//            let distance = round(stDate.distance(to: fnDate) * 10 / 10.0)
+//            print("Start \(stDate.ISO8601Format()) | finish \(fnDate.ISO8601Format()) with \(qos.rawValue) distance \(distance)")
         }
         navigationItem.title = "Photo Gallery".localize()
         navigationItem.titleView?.tintColor = .createColor(lightMode: .black, darkMode: .white)

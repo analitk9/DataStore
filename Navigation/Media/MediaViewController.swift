@@ -47,7 +47,6 @@ class MediaViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        configureTabBarItem()
         configureAudioButton()
     }
     
@@ -92,15 +91,7 @@ class MediaViewController: UIViewController {
         ].forEach { $0.isActive = true }
         
     }
-    
 
-    func configureTabBarItem() {
-        tabBarItem.title = "Media".localize()
-        tabBarItem.image = UIImage(systemName: "music.note.tv")
-        tabBarItem.selectedImage = UIImage(systemName: "music.note.tv.fill")
-        tabBarItem.tag = 30
-    }
-    
     func configureAudioButton(){
         audioView.nextButton.onTap = pressNext
         audioView.playButton.onTap = pressPlay

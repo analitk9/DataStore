@@ -23,6 +23,7 @@ class AudioView: UIView {
         let but = CustomButton(frame: .zero, title: nil, tintColor: UIColor.createColor(lightMode: .black, darkMode: .white))
         but.setImage(UIImage(systemName: "backward.end"), for: .normal)
         but.setImage(UIImage(systemName: "backward.end.fill"), for: .highlighted)
+        but.backgroundColor = UIColor(patternImage: UIImage(named: "bluePixel")!)
         but.layer.borderWidth = 1
         return but
     }()
@@ -31,6 +32,7 @@ class AudioView: UIView {
         let but = CustomButton(frame: .zero, title: nil, tintColor: UIColor.createColor(lightMode: .black, darkMode: .white))
         but.setImage(UIImage(systemName: "pause"), for: .normal)
         but.setImage(UIImage(systemName: "pause.fill"), for: .highlighted)
+        but.backgroundColor = UIColor(patternImage: UIImage(named: "bluePixel")!)
         but.layer.borderWidth = 1
         return but
     }()
@@ -39,6 +41,7 @@ class AudioView: UIView {
         let but = CustomButton(frame: .zero, title: nil, tintColor: UIColor.createColor(lightMode: .black, darkMode: .white))
         but.setImage(UIImage(systemName: "stop"), for: .normal)
         but.setImage(UIImage(systemName: "stop.fill"), for: .highlighted)
+        but.backgroundColor = UIColor(patternImage: UIImage(named: "bluePixel")!)
         but.layer.borderWidth = 1
         return but
     }()
@@ -47,6 +50,7 @@ class AudioView: UIView {
         let but = CustomButton(frame: .zero, title: nil, tintColor: UIColor.createColor(lightMode: .black, darkMode: .white))
         but.setImage(UIImage(systemName: "play"), for: .normal)
         but.setImage(UIImage(systemName: "play.fill"), for: .highlighted)
+        but.backgroundColor = UIColor(patternImage: UIImage(named: "bluePixel")!)
         but.layer.borderWidth = 1
         return but
     }()
@@ -55,6 +59,7 @@ class AudioView: UIView {
         let but = CustomButton(frame: .zero, title: nil, tintColor: UIColor.createColor(lightMode: .black, darkMode: .white))
         but.setImage(UIImage(systemName: "forward.end"), for: .normal)
         but.setImage(UIImage(systemName: "forward.end.fill"), for: .highlighted)
+        but.backgroundColor = UIColor(patternImage: UIImage(named: "bluePixel")!)
         but.layer.borderWidth = 1
         return but
     }()
